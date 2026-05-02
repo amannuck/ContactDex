@@ -3,27 +3,52 @@
     "id": "001",
     "name": "Jordan Lee",
     "bio": "Robotics enthusiast, met at DevConf 2026 — can intro to YC partners.",
-    "tags": ["Conference 2026", "Robotics", "Founder"],
-    "moveset": ["YC intro path", "ROS2 expert", "Based in SF"],
+    "tags": [
+      "Conference 2026",
+      "Robotics",
+      "Founder"
+    ],
+    "moveset": [
+      "YC intro path",
+      "ROS2 expert",
+      "Based in SF"
+    ],
     "stage": 0,
     "interactions": [],
-    "createdAt": "2026-05-01T09:00:00Z"
+    "createdAt": "2026-05-01T09:00:00Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-001"
   },
   {
     "id": "002",
     "name": "Sara Malik",
     "bio": "Product designer at Linear; chatted at hallway track.",
-    "tags": ["Design", "Conference 2026"],
-    "moveset": ["Design systems keynote", "Figma workflows"],
+    "tags": [
+      "Design",
+      "Conference 2026"
+    ],
+    "moveset": [
+      "Design systems keynote",
+      "Figma workflows"
+    ],
     "stage": 1,
-    "interactions": [{ "note": "Swapped book recs", "date": "2026-05-09" }],
-    "createdAt": "2026-04-10T14:30:00Z"
+    "interactions": [
+      {
+        "note": "Swapped book recs",
+        "date": "2026-05-09"
+      }
+    ],
+    "createdAt": "2026-04-10T14:30:00Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-002"
   },
   {
     "id": "003",
     "name": "Alex Chen",
     "bio": "ML engineer at Stripe; met via mutual at DevConf 2026.",
-    "tags": ["Work", "ML", "Conference 2026"],
+    "tags": [
+      "Work",
+      "ML",
+      "Conference 2026"
+    ],
     "moveset": [
       "Knows React & PyTorch",
       "Can intro to Stripe hiring manager",
@@ -31,62 +56,121 @@
     ],
     "stage": 2,
     "interactions": [
-      { "note": "Discussed embeddings at breakfast", "date": "2026-05-06" },
-      { "note": "Shared VL paper link", "date": "2026-05-12" },
-      { "note": "Coffee chat about teams hiring", "date": "2026-05-02" }
+      {
+        "note": "Discussed embeddings at breakfast",
+        "date": "2026-05-06"
+      },
+      {
+        "note": "Shared VL paper link",
+        "date": "2026-05-12"
+      },
+      {
+        "note": "Coffee chat about teams hiring",
+        "date": "2026-05-02"
+      },
+      {
+        "note": "He touched me",
+        "date": "2026-05-02"
+      }
     ],
-    "createdAt": "2026-03-08T17:05:00Z"
+    "createdAt": "2026-03-08T17:05:00Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-003"
   },
   {
     "id": "004",
     "name": "Priya Nair",
     "bio": "DevRel at Grafana; OSS metrics nerd.",
-    "tags": ["DevRel", "Observability"],
-    "moveset": ["Speaks KubeCon booth duty", "Helps with early OSS"],
+    "tags": [
+      "DevRel",
+      "Observability"
+    ],
+    "moveset": [
+      "Speaks KubeCon booth duty",
+      "Helps with early OSS"
+    ],
     "stage": 1,
     "interactions": [
-      { "note": "Discussed OTLP rollout", "date": "2026-04-19" },
-      { "note": "Follow-up on Grafana Cloud trial", "date": "2026-03-07" }
+      {
+        "note": "Discussed OTLP rollout",
+        "date": "2026-04-19"
+      },
+      {
+        "note": "Follow-up on Grafana Cloud trial",
+        "date": "2026-03-07"
+      }
     ],
-    "createdAt": "2026-01-03T09:42:18Z"
+    "createdAt": "2026-01-03T09:42:18Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-004"
   },
   {
     "id": "005",
     "name": "Chris Ortiz",
     "bio": "Angel investor focusing on infra; intro through hackathon Slack.",
-    "tags": ["Investor", "Infra"],
-    "moveset": ["Funds pre-seed B2B", "Open to warm intro calls"],
+    "tags": [
+      "Investor",
+      "Infra"
+    ],
+    "moveset": [
+      "Funds pre-seed B2B",
+      "Open to warm intro calls"
+    ],
     "stage": 2,
     "interactions": [
-      { "note": "Pilot feedback on pitch", "date": "2026-06-06" },
-      { "note": "Second call on roadmap", "date": "2026-03-06" },
-      { "note": "Coffee at SOMA cafe", "date": "2026-02-19" },
+      {
+        "note": "Pilot feedback on pitch",
+        "date": "2026-06-06"
+      },
+      {
+        "note": "Second call on roadmap",
+        "date": "2026-03-06"
+      },
+      {
+        "note": "Coffee at SOMA cafe",
+        "date": "2026-02-19"
+      },
       {
         "note": "Forwarded deck to infra founder friend",
         "date": "2026-06-06"
       }
     ],
-    "createdAt": "2026-06-06T06:56:51Z"
+    "createdAt": "2026-06-06T06:56:51Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-005"
   },
   {
     "id": "006",
     "name": "Morgan Vega",
     "bio": "Security engineer; met at Rust meetup.",
-    "tags": ["Security", "Rust"],
-    "moveset": ["Threat modeling workshops", "Advises on SBOM tooling"],
+    "tags": [
+      "Security",
+      "Rust"
+    ],
+    "moveset": [
+      "Threat modeling workshops",
+      "Advises on SBOM tooling"
+    ],
     "stage": 0,
     "interactions": [],
-    "createdAt": "2026-06-06T06:54:53Z"
+    "createdAt": "2026-06-06T06:54:53Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-006"
   },
   {
     "id": "007",
     "name": "Riley Patel",
     "bio": "GTM lead at AI startup Series A; overlaps on outreach automation.",
-    "tags": ["GTM", "AI"],
-    "moveset": ["Rev ops playbooks", "Intro to BD lead"],
+    "tags": [
+      "GTM",
+      "AI"
+    ],
+    "moveset": [
+      "Rev ops playbooks",
+      "Intro to BD lead"
+    ],
     "stage": 2,
     "interactions": [
-      { "note": "Compared outbound stacks", "date": "2026-06-06" },
+      {
+        "note": "Compared outbound stacks",
+        "date": "2026-06-06"
+      },
       {
         "note": "Collaborated on one-pager for joint demo",
         "date": "2026-06-06"
@@ -96,17 +180,28 @@
         "date": "2026-06-06"
       }
     ],
-    "createdAt": "2026-06-06T06:57:51Z"
+    "createdAt": "2026-06-06T06:57:51Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-007"
   },
   {
     "id": "008",
     "name": "Taylor Kim",
     "bio": "Close collaborator on side project tooling; transitioned from Talked upward.",
-    "tags": ["Close", "Builder"],
-    "moveset": ["Shipped CLI together", "On-call buddy", "Mentorship on infra"],
+    "tags": [
+      "Close",
+      "Builder"
+    ],
+    "moveset": [
+      "Shipped CLI together",
+      "On-call buddy",
+      "Mentorship on infra"
+    ],
     "stage": 3,
     "interactions": [
-      { "note": "Kickoff sprint planning", "date": "2026-06-06" },
+      {
+        "note": "Kickoff sprint planning",
+        "date": "2026-06-06"
+      },
       {
         "note": "Debugging session on Postgres locks",
         "date": "2026-06-06"
@@ -128,26 +223,757 @@
         "date": "2026-06-06"
       }
     ],
-    "createdAt": "2026-06-06T06:53:53Z"
+    "createdAt": "2026-06-06T06:53:53Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-008"
   },
   {
     "id": "009",
     "name": "Jamie Nguyen",
     "bio": "Open-source PM; shared booth at FOSS expo.",
-    "tags": ["Open Source", "PM"],
-    "moveset": ["Maintainer relations", "Doc sprint organizer"],
+    "tags": [
+      "Open Source",
+      "PM"
+    ],
+    "moveset": [
+      "Maintainer relations",
+      "Doc sprint organizer"
+    ],
     "stage": 1,
-    "interactions": [{ "note": "Swapped Maintainer Week ideas", "date": "2026-06-06" }],
-    "createdAt": "2026-06-06T06:59:53Z"
+    "interactions": [
+      {
+        "note": "Swapped Maintainer Week ideas",
+        "date": "2026-06-06"
+      }
+    ],
+    "createdAt": "2026-06-06T06:59:53Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-009"
   },
   {
     "id": "010",
     "name": "Devon Wells",
     "bio": "Solutions architect focusing on regulated industries.",
-    "tags": ["Enterprise", "Compliance"],
-    "moveset": ["HIPAA rollout patterns", "Intro to AE for healthcare"],
+    "tags": [
+      "Enterprise",
+      "Compliance"
+    ],
+    "moveset": [
+      "HIPAA rollout patterns",
+      "Intro to AE for healthcare"
+    ],
     "stage": 0,
     "interactions": [],
-    "createdAt": "2026-06-06T07:06:53Z"
+    "createdAt": "2026-06-06T07:06:53Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-010"
+  },
+  {
+    "id": "011",
+    "name": "Aman Nunchuky",
+    "bio": "Graduated concordia, works at workjam",
+    "tags": [
+      "Hackathons",
+      "workjam",
+      "3x hackathon winner"
+    ],
+    "moveset": [
+      "Rapid prototyping",
+      "Team lead on hackathon submissions",
+      "Strong presenter"
+    ],
+    "stage": 2,
+    "interactions": [
+      {
+        "note": "did a hackathon togehter",
+        "date": "2026-05-02"
+      },
+      {
+        "note": "won a hackathon together",
+        "date": "2026-05-02"
+      },
+      {
+        "note": "worked on a project",
+        "date": "2026-05-02"
+      },
+      {
+        "note": "Follow-up sync after hackathon demos",
+        "date": "2026-05-02"
+      }
+    ],
+    "createdAt": "2026-05-02T15:27:19.318Z",
+    "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-011"
+  },
+  {
+    "id": "012",
+    "name": "Jordan Lee",
+    "bio": "Staff Engineer — payments infra, formerly at a bank unicorn. Company: Stripe Profile: https://www.linkedin.com/in/demo-jordan-lee-devconf",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-jordan-lee-devconf",
+    "avatar": "https://api.dicebear.com/9.x/personas/png?seed=jordanLEEdevconf&scale=118"
+  },
+  {
+    "id": "013",
+    "name": "Sara Malik",
+    "bio": "Lead product designer · design systems nerd · cat parent. Company: Linear Profile: https://www.linkedin.com/in/demo-sara-malik-linear",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-sara-malik-linear",
+    "avatar": "https://i.pravatar.cc/240?img=17"
+  },
+  {
+    "id": "014",
+    "name": "Alex Chen",
+    "bio": "ML infra • torch → production • Québec. Company: Databricks Profile: https://www.linkedin.com/in/demo-alex-chen-ml",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-alex-chen-ml",
+    "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=AlexChenDatabricks&flip=true"
+  },
+  {
+    "id": "015",
+    "name": "Priya Nandakumar",
+    "bio": "Technical PM driving self-serve growth experiments. Company: Notion Profile: https://www.linkedin.com/in/demo-priya-notion-pm",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-priya-notion-pm",
+    "avatar": "https://i.pravatar.cc/240?img=32"
+  },
+  {
+    "id": "016",
+    "name": "Marcus Holt",
+    "bio": "Founder-operator | B2B scheduling | exited once, building again. Company: Acme Scheduling Profile: https://www.linkedin.com/in/demo-marcus-holt-founder",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-marcus-holt-founder",
+    "avatar": "https://api.dicebear.com/9.x/notionists/png?seed=marcusholtFOUNDER&hair=variant16"
+  },
+  {
+    "id": "017",
+    "name": "Elena Vogt",
+    "bio": "Security researcher · cryptography & formal methods. Company: Trail of Bits Profile: https://www.linkedin.com/in/demo-elena-vogt-security",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-elena-vogt-security",
+    "avatar": "https://i.pravatar.cc/240?img=45"
+  },
+  {
+    "id": "018",
+    "name": "Diego Ramos",
+    "bio": "Flutter lead • 6 years mobile • México City ⇄ SF. Company: Superwall Profile: https://www.linkedin.com/in/demo-diego-ramos-mobile",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-diego-ramos-mobile",
+    "avatar": "https://api.dicebear.com/9.x/lorelei/png?seed=diegoSUPER&color=ffb703"
+  },
+  {
+    "id": "019",
+    "name": "Amira Hassan",
+    "bio": "Data engineer (dbt / Snowflake). Company: Snowflake Profile: https://www.linkedin.com/in/demo-amira-hassan-de",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-amira-hassan-de",
+    "avatar": "https://i.pravatar.cc/240?img=9"
+  },
+  {
+    "id": "020",
+    "name": "Chris Okafor",
+    "bio": "Solutions architect × creative technologist. Company: Vercel Profile: https://www.linkedin.com/in/demo-chris-okafor-se",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-chris-okafor-se",
+    "avatar": "https://api.dicebear.com/9.x/big-smile/png?seed=chrisokafor992"
+  },
+  {
+    "id": "021",
+    "name": "Riley Park",
+    "bio": "Community magic — badges, lounges, hallway serendipity. Company: DevConf Profile: https://www.linkedin.com/in/demo-riley-park-events",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-riley-park-events",
+    "avatar": "https://i.pravatar.cc/240?img=22"
+  },
+  {
+    "id": "022",
+    "name": "Taylor Brooks",
+    "bio": "People partner · leveling & comp · pronouns she/they. Company: Personio Profile: https://www.linkedin.com/in/demo-taylor-brooks-hr",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-taylor-brooks-hr",
+    "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=taylorbrookshr&eyes=happy"
+  },
+  {
+    "id": "023",
+    "name": "Sam Okonkwo",
+    "bio": "Roboticist • ROS 2 • humanoid manipulation. Company: Figure Profile: https://www.linkedin.com/in/demo-sam-okonkwo-robotics",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-sam-okonkwo-robotics",
+    "avatar": "https://i.pravatar.cc/240?img=51"
+  },
+  {
+    "id": "024",
+    "name": "Morgan Singh",
+    "bio": "Night-shift SRE. Incident commander. Postmortems with soul.. Company: Datadog Profile: https://www.linkedin.com/in/demo-morgan-singh-sre",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-morgan-singh-sre",
+    "avatar": "https://api.dicebear.com/9.x/adventurer/png?seed=MorganSinghDOG"
+  },
+  {
+    "id": "025",
+    "name": "Casey Nguyen",
+    "bio": "Brand & narrative • podcast host • skeptical of vibes-only decks. Company: Descript Profile: https://www.linkedin.com/in/demo-casey-nguyen-brand",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-casey-nguyen-brand",
+    "avatar": "https://i.pravatar.cc/240?img=36"
+  },
+  {
+    "id": "026",
+    "name": "Jamie Foster",
+    "bio": "Partner @ seed fund → climate + infra + weird hardware. Company: Example Ventures Profile: https://www.linkedin.com/in/demo-jamie-foster-vc",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-jamie-foster-vc",
+    "avatar": "https://api.dicebear.com/9.x/bottts/png?seed=jamievoice77"
+  },
+  {
+    "id": "027",
+    "name": "Quinn Washington",
+    "bio": "Principal PM — editor & multiplayer canvas. Company: Figma Profile: https://www.linkedin.com/in/demo-quinn-washington-figma",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-quinn-washington-figma",
+    "avatar": "https://i.pravatar.cc/240?img=12"
+  },
+  {
+    "id": "028",
+    "name": "Drew Kim",
+    "bio": "Empathetic EM — platform tribe — hiring senior Rust. Company: GitHub Profile: https://www.linkedin.com/in/demo-drew-kim-github",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-drew-kim-github",
+    "avatar": "https://api.dicebear.com/9.x/pixel-art/png?seed=DrewGithubEM"
+  },
+  {
+    "id": "029",
+    "name": "Blair Martinez",
+    "bio": "Dev advocate / live-coder — show, don’t slideware. Company: Cursor Profile: https://www.linkedin.com/in/demo-blair-martinez-devrel",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-blair-martinez-devrel",
+    "avatar": "https://i.pravatar.cc/240?img=27"
+  },
+  {
+    "id": "030",
+    "name": "Reese Thompson",
+    "bio": "Sr. SA — migrated 200+ fleets off legacy mainframes (true story). Company: AWS Profile: https://www.linkedin.com/in/demo-reese-thompson-aws",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-reese-thompson-aws",
+    "avatar": "https://api.dicebear.com/9.x/initials/png?seed=RThompson&backgroundType=gradientLinear"
+  },
+  {
+    "id": "031",
+    "name": "Avery Patel",
+    "bio": "Director of Design · tokens · a11y · hiring remote-first. Company: Figma Profile: https://www.linkedin.com/in/demo-avery-patel-design",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-avery-patel-design",
+    "avatar": "https://i.pravatar.cc/240?img=44"
+  },
+  {
+    "id": "032",
+    "name": "Skyler Morris",
+    "bio": "Senior iOS — SwiftUI skeptic turned convert. Company: Lyft Profile: https://www.linkedin.com/in/demo-skyler-morris-ios",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-skyler-morris-ios",
+    "avatar": "https://api.dicebear.com/9.x/fun-emoji/png?seed=skylift42"
+  },
+  {
+    "id": "033",
+    "name": "Cameron Wolfe",
+    "bio": "Growth PM experimenting with outbound × product cues. Company: Loom Profile: https://www.linkedin.com/in/demo-cameron-wolfe-pm",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-cameron-wolfe-pm",
+    "avatar": "https://i.pravatar.cc/240?img=19"
+  },
+  {
+    "id": "034",
+    "name": "Rowan Diaz",
+    "bio": "Frontend staff — Remix, suspense boundaries, polish. Company: Remix Profile: https://www.linkedin.com/in/demo-rowan-diaz-fe",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-rowan-diaz-fe",
+    "avatar": "https://api.dicebear.com/9.x/lorelei-neutral/png?seed=rowandiazneutral"
+  },
+  {
+    "id": "035",
+    "name": "Finley Gupta",
+    "bio": "Workflows nerd — Temporal, Saga patterns, saga cleanup. Company: Temporal Profile: https://www.linkedin.com/in/demo-finley-gupta-backend",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-finley-gupta-backend",
+    "avatar": "https://i.pravatar.cc/240?img=59"
+  },
+  {
+    "id": "036",
+    "name": "River Oshiro",
+    "bio": "Cofounder / CTO • serverless Postgres dreams. Company: Convex Profile: https://www.linkedin.com/in/demo-river-oshiro-cto",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-river-oshiro-cto",
+    "avatar": "https://api.dicebear.com/9.x/shapes/png?seed=riverconvexcto"
+  },
+  {
+    "id": "037",
+    "name": "Phoenix Alden",
+    "bio": "Infrastructure seed investor — cheque size: honest. Company: Beacon Capital Profile: https://www.linkedin.com/in/demo-phoenix-alden-vc",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-phoenix-alden-vc",
+    "avatar": "https://i.pravatar.cc/240?img=7"
+  },
+  {
+    "id": "038",
+    "name": "Sage Miller",
+    "bio": "Sr. TPM • checkout • Black Friday survivor x5. Company: Shopify Profile: https://www.linkedin.com/in/demo-sage-miller-tpm",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-sage-miller-tpm",
+    "avatar": "https://api.dicebear.com/9.x/open-peeps/png?seed=SageMillerTPM344"
+  },
+  {
+    "id": "039",
+    "name": "Reese Murphy",
+    "bio": "QA architect — browsers are chaos engines. Company: Microsoft (Playwright team) Profile: https://www.linkedin.com/in/demo-reese-murphy-qa",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-reese-murphy-qa",
+    "avatar": "https://i.pravatar.cc/240?img=33"
+  },
+  {
+    "id": "040",
+    "name": "Logan Byrne",
+    "bio": "Making dashboards people actually trust. Company: Grafana Labs Profile: https://www.linkedin.com/in/demo-logan-byrne-obs",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-logan-byrne-obs",
+    "avatar": "https://api.dicebear.com/9.x/micah/png?seed=loganbyrneGRAF"
+  },
+  {
+    "id": "041",
+    "name": "Hayden Lewis",
+    "bio": "Maintainer: 3 CLIs you've probably aliased accidentally Profile: https://www.linkedin.com/in/demo-hayden-lewis-oss",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-hayden-lewis-oss",
+    "avatar": "https://i.pravatar.cc/240?img=60"
+  },
+  {
+    "id": "042",
+    "name": "Blake Turner",
+    "bio": "Associate consultant — benchmarking SaaS & infra roll-ups. Company: Bain & Company Profile: https://www.linkedin.com/in/demo-blake-turner-consult",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-blake-turner-consult",
+    "avatar": "https://api.dicebear.com/9.x/identicon/png?seed=bainblake928"
+  },
+  {
+    "id": "043",
+    "name": "Devon Clark",
+    "bio": "Associate — venture formation, secondaries. Company: Gunderson Dettmer Profile: https://www.linkedin.com/in/demo-devon-clark-law",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-devon-clark-law",
+    "avatar": "https://i.pravatar.cc/240?img=11"
+  },
+  {
+    "id": "044",
+    "name": "Robin Singh",
+    "bio": "Freelance product designer — decks, dashboards, donuts Profile: https://www.linkedin.com/in/demo-robin-singh-ux",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-robin-singh-ux",
+    "avatar": "https://api.dicebear.com/9.x/thumbs/png?seed=robinfreela33"
+  },
+  {
+    "id": "045",
+    "name": "Frankie Rivera",
+    "bio": "Head of video — micro-docs that feel like TikTok beats. Company: Moment Profile: https://www.linkedin.com/in/demo-frankie-rivera-video",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-frankie-rivera-video",
+    "avatar": "https://i.pravatar.cc/240?img=28"
+  },
+  {
+    "id": "046",
+    "name": "Remy Katz",
+    "bio": "Applied scientist — evals were my personality first. Company: Hugging Face Profile: https://www.linkedin.com/in/demo-remy-katz-ml",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-remy-katz-ml",
+    "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=remyHFscience"
+  },
+  {
+    "id": "047",
+    "name": "Stevie Hahn",
+    "bio": "Strategic finance — bottoms-up models that CFOs tolerate. Company: Brex Profile: https://www.linkedin.com/in/demo-stevie-hahn-finance",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-stevie-hahn-finance",
+    "avatar": "https://i.pravatar.cc/240?img=48"
+  },
+  {
+    "id": "048",
+    "name": "Lou Morris",
+    "bio": "Partnerships BD — hyperscalers + fintech. Company: Stripe Profile: https://www.linkedin.com/in/demo-lou-morris-bd",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-lou-morris-bd",
+    "avatar": "https://api.dicebear.com/9.x/big-ears-neutral/png?seed=loustripebd909"
+  },
+  {
+    "id": "049",
+    "name": "Kit Yamamoto",
+    "bio": "Technical recruiting leader — infra & platform hires. Company: Ramp Profile: https://www.linkedin.com/in/demo-kit-yamamoto-recruiting",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-kit-yamamoto-recruiting",
+    "avatar": "https://i.pravatar.cc/240?img=35"
+  },
+  {
+    "id": "050",
+    "name": "Jess Fox",
+    "bio": "People partner for messy org charts (with love). Company: Airbnb Profile: https://www.linkedin.com/in/demo-jess-fox-people",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-jess-fox-people",
+    "avatar": "https://api.dicebear.com/9.x/croodles/png?seed=jessbnbfox"
+  },
+  {
+    "id": "051",
+    "name": "Bo Carter",
+    "bio": "Fractional CFO for Series A nightmares. Company: Independent / Mercury alum Profile: https://www.linkedin.com/in/demo-bo-carter-cfo",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-bo-carter-cfo",
+    "avatar": "https://i.pravatar.cc/240?img=15"
+  },
+  {
+    "id": "052",
+    "name": "Nikhil Shah",
+    "bio": "Postgres obsessive — branching, Neon, nightmares about VACUUM. Company: Neon Profile: https://www.linkedin.com/in/demo-nikhil-shah-neon",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-nikhil-shah-neon",
+    "avatar": "https://api.dicebear.com/9.x/miniavs/png?seed=NikhNeonPg"
+  },
+  {
+    "id": "053",
+    "name": "Zoe Williams",
+    "bio": "Clinical ops meets product — oncology navigation. Company: Helix Health Profile: https://www.linkedin.com/in/demo-zoe-williams-founder",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-zoe-williams-founder",
+    "avatar": "https://i.pravatar.cc/240?img=54"
+  },
+  {
+    "id": "054",
+    "name": "Omar Farouk",
+    "bio": "Edge apps on tiny VMs — happiest near `flyctl deploy` green. Company: Fly.io Profile: https://www.linkedin.com/in/demo-omar-farouk-fly",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-omar-farouk-fly",
+    "avatar": "https://api.dicebear.com/9.x/bottts-neutral/png?seed=omarfaroukEDGE"
+  },
+  {
+    "id": "055",
+    "name": "Mina Kouri",
+    "bio": "Designer for internal admins — spreadsheets are users too. Company: Retool Profile: https://www.linkedin.com/in/demo-mina-kouri-retool",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-mina-kouri-retool",
+    "avatar": "https://i.pravatar.cc/240?img=41"
+  },
+  {
+    "id": "056",
+    "name": "Jules Fontaine",
+    "bio": "IAM & zero-trust skeptic → practitioner — MFA everywhere. Company: Okta Profile: https://www.linkedin.com/in/demo-jules-fontaine-sec",
+    "tags": [
+      "LinkedIn",
+      "Importer"
+    ],
+    "moveset": [],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-02T16:47:12.613Z",
+    "linkedinExternalKey": "linkedin:demo-jules-fontaine-sec",
+    "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=jules_okta_IAM_face"
   }
 ]
