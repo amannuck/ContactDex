@@ -1,0 +1,153 @@
+[
+  {
+    "id": "001",
+    "name": "Jordan Lee",
+    "bio": "Robotics enthusiast, met at DevConf 2026 — can intro to YC partners.",
+    "tags": ["Conference 2026", "Robotics", "Founder"],
+    "moveset": ["YC intro path", "ROS2 expert", "Based in SF"],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-05-01T09:00:00Z"
+  },
+  {
+    "id": "002",
+    "name": "Sara Malik",
+    "bio": "Product designer at Linear; chatted at hallway track.",
+    "tags": ["Design", "Conference 2026"],
+    "moveset": ["Design systems keynote", "Figma workflows"],
+    "stage": 1,
+    "interactions": [{ "note": "Swapped book recs", "date": "2026-05-09" }],
+    "createdAt": "2026-04-10T14:30:00Z"
+  },
+  {
+    "id": "003",
+    "name": "Alex Chen",
+    "bio": "ML engineer at Stripe; met via mutual at DevConf 2026.",
+    "tags": ["Work", "ML", "Conference 2026"],
+    "moveset": [
+      "Knows React & PyTorch",
+      "Can intro to Stripe hiring manager",
+      "Lives in Montreal"
+    ],
+    "stage": 2,
+    "interactions": [
+      { "note": "Discussed embeddings at breakfast", "date": "2026-05-06" },
+      { "note": "Shared VL paper link", "date": "2026-05-12" },
+      { "note": "Coffee chat about teams hiring", "date": "2026-05-02" }
+    ],
+    "createdAt": "2026-03-08T17:05:00Z"
+  },
+  {
+    "id": "004",
+    "name": "Priya Nair",
+    "bio": "DevRel at Grafana; OSS metrics nerd.",
+    "tags": ["DevRel", "Observability"],
+    "moveset": ["Speaks KubeCon booth duty", "Helps with early OSS"],
+    "stage": 1,
+    "interactions": [
+      { "note": "Discussed OTLP rollout", "date": "2026-04-19" },
+      { "note": "Follow-up on Grafana Cloud trial", "date": "2026-03-07" }
+    ],
+    "createdAt": "2026-01-03T09:42:18Z"
+  },
+  {
+    "id": "005",
+    "name": "Chris Ortiz",
+    "bio": "Angel investor focusing on infra; intro through hackathon Slack.",
+    "tags": ["Investor", "Infra"],
+    "moveset": ["Funds pre-seed B2B", "Open to warm intro calls"],
+    "stage": 2,
+    "interactions": [
+      { "note": "Pilot feedback on pitch", "date": "2026-06-06" },
+      { "note": "Second call on roadmap", "date": "2026-03-06" },
+      { "note": "Coffee at SOMA cafe", "date": "2026-02-19" },
+      {
+        "note": "Forwarded deck to infra founder friend",
+        "date": "2026-06-06"
+      }
+    ],
+    "createdAt": "2026-06-06T06:56:51Z"
+  },
+  {
+    "id": "006",
+    "name": "Morgan Vega",
+    "bio": "Security engineer; met at Rust meetup.",
+    "tags": ["Security", "Rust"],
+    "moveset": ["Threat modeling workshops", "Advises on SBOM tooling"],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-06-06T06:54:53Z"
+  },
+  {
+    "id": "007",
+    "name": "Riley Patel",
+    "bio": "GTM lead at AI startup Series A; overlaps on outreach automation.",
+    "tags": ["GTM", "AI"],
+    "moveset": ["Rev ops playbooks", "Intro to BD lead"],
+    "stage": 2,
+    "interactions": [
+      { "note": "Compared outbound stacks", "date": "2026-06-06" },
+      {
+        "note": "Collaborated on one-pager for joint demo",
+        "date": "2026-06-06"
+      },
+      {
+        "note": "Synced on webinar co-marketing angle",
+        "date": "2026-06-06"
+      }
+    ],
+    "createdAt": "2026-06-06T06:57:51Z"
+  },
+  {
+    "id": "008",
+    "name": "Taylor Kim",
+    "bio": "Close collaborator on side project tooling; transitioned from Talked upward.",
+    "tags": ["Close", "Builder"],
+    "moveset": ["Shipped CLI together", "On-call buddy", "Mentorship on infra"],
+    "stage": 3,
+    "interactions": [
+      { "note": "Kickoff sprint planning", "date": "2026-06-06" },
+      {
+        "note": "Debugging session on Postgres locks",
+        "date": "2026-06-06"
+      },
+      {
+        "note": "Retrospective and scope cut",
+        "date": "2026-06-06"
+      },
+      {
+        "note": "Celebrate launch brunch",
+        "date": "2026-06-06"
+      },
+      {
+        "note": "Quarterly roadmap sync",
+        "date": "2026-06-06"
+      },
+      {
+        "note": "Handoff docs for maintainers",
+        "date": "2026-06-06"
+      }
+    ],
+    "createdAt": "2026-06-06T06:53:53Z"
+  },
+  {
+    "id": "009",
+    "name": "Jamie Nguyen",
+    "bio": "Open-source PM; shared booth at FOSS expo.",
+    "tags": ["Open Source", "PM"],
+    "moveset": ["Maintainer relations", "Doc sprint organizer"],
+    "stage": 1,
+    "interactions": [{ "note": "Swapped Maintainer Week ideas", "date": "2026-06-06" }],
+    "createdAt": "2026-06-06T06:59:53Z"
+  },
+  {
+    "id": "010",
+    "name": "Devon Wells",
+    "bio": "Solutions architect focusing on regulated industries.",
+    "tags": ["Enterprise", "Compliance"],
+    "moveset": ["HIPAA rollout patterns", "Intro to AE for healthcare"],
+    "stage": 0,
+    "interactions": [],
+    "createdAt": "2026-06-06T07:06:53Z"
+  }
+]

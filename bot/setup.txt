@@ -1,0 +1,17 @@
+Professor Oak (Botpress ADK)
+===========================
+
+Port conflict: ContactDex defaults to localhost:3000; ADK `adk dev` may also use 3000.
+Use e.g. PORT=3040 npm run dev from repo root for ContactDex.
+
+Scaffold ADK beside this app per botpress-skill.md:
+  cd bot && npx @botpress/cli@latest init ...
+
+HTTP integration with ContactDex (BASE = your ContactDex URL):
+  POST BASE/api/webhook/botpress — {"action":"create","data":{name,bio?,tags?,moveset?}}
+                             or {"action":"log","data":{id,note,date?}}
+  GET  BASE/api/quiz/random
+  GET  BASE/api/contacts?sort=stale
+
+Embed: set NEXT_PUBLIC_BOTPRESS_WEBCHAT_CONFIG in repo root .env.local to Cloud JSON;
+see https://botpress.com/docs/webchat/get-started/embedding-webchat.md
