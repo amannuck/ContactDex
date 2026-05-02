@@ -30,6 +30,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
     initial.stage,
     initial.name,
     initial.bio,
+    initial.avatar,
     initial.interactions.length,
     initial.tags.join(","),
     initial.moveset.join(","),
@@ -58,11 +59,19 @@ export default function ContactDetailClient({ contact: initial }: Props) {
         <div className="relative border-b border-slate-700/60 bg-black/25 px-8 py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div className="flex gap-6">
-              <div
-                className={`flex size-24 shrink-0 items-center justify-center rounded-full text-3xl font-bold text-white shadow-inner ${avatarColorClass(contact.tags[0])}`}
-              >
-                {initials(contact.name)}
-              </div>
+              {contact.avatar ? (
+                <img
+                  src={contact.avatar}
+                  alt=""
+                  className="size-24 shrink-0 rounded-full object-cover shadow-inner ring-2 ring-slate-600/70"
+                />
+              ) : (
+                <div
+                  className={`flex size-24 shrink-0 items-center justify-center rounded-full text-3xl font-bold text-white shadow-inner ${avatarColorClass(contact.tags[0])}`}
+                >
+                  {initials(contact.name)}
+                </div>
+              )}
               <div className="min-w-0">
                 <span className="font-mono text-sm text-blue-400/90">
                   #{contact.id}

@@ -81,6 +81,7 @@ All routes read/write a single `data/contacts.json` file. No database needed.
 | `/api/contacts/[id]/log` | POST | Add interaction log entry `{note, date}`. Auto-advances evolution stage based on log count. |
 | `/api/quiz/random` | GET | Returns a random contact with one field hidden for study mode |
 | `/api/webhook/botpress` | POST | Receives structured payloads from Botpress bot → calls internal create/update logic |
+| `/api/contacts/import/linkedin` | POST | Internal bridge from Python importer (**Bearer CONTACTDEX_IMPORT_SECRET**); `{ contacts[] }` with **`linkedinExternalKey`** dedupe against `contacts.json`. |
 
 ### 3. Data Model
 
@@ -158,3 +159,45 @@ Frontend polls or refetches → new card appears in gallery
 ```
 
 This is the "wow" moment in the demo: say something in chat → card materializes in the grid.
+
+---
+
+## Aggregator ingest service (LinkedIn-style webhooks)
+
+ContactDex’s primary store remains `data/contacts.json` on the Next.js host. A **separate Python service** under `services/importer/` accepts signed webhooks from an external aggregator (Clay, Zapier, custom), persists deduplicated snapshots in **Postgres**, diffs **`external_person_key`** values across time, optionally **POSTs new rows** into ContactDex via a **secret Bearer** bridge.
+
+```text
+Aggregator (Clay / Zapier / custom)
+           │  POST /webhooks/connections
+           │  Authorization: Bearer <api-token>
+           ▼
+┌─────────────────────────────┐      enqueue        ┌──────────────────┐
+│  importer-api (FastAPI)      │ ─────────────────►   │ Redis (RQ queue) │
+│  • api_key → ingestion_users │                      └────────┬─────────┘
+│  • idempotent batch rows      │                               │
+└──────────────┬──────────────┘                               ▼
+               │ saves                              ┌──────────────────────┐
+               ▼                                      │ importer-worker     │
+┌─────────────────────────────┐                      │ • snapshots + diff  │
+│ Postgres                    │ ◄─────────────────── │ • optional bridge   │
+│ • ingestion_batches         │                       └──────────┬─────────┘
+│ • connection_snapshots      │                                  │
+│ • import_events (new/noop)  │                                  │ POST when configured
+└─────────────────────────────┘                                  ▼
+                                         ┌───────────────────────────────────────┐
+                                         │ Next.js: /api/contacts/import/linkedin │
+                                         │ Bearer CONTACTDEX_IMPORT_SECRET        │
+                                         │ → mutateContacts (contacts.json)        │
+                                         └───────────────────────────────────────┘
+```
+
+| Piece | Role |
+|---|---|
+| `POST /webhooks/connections` | Validates Bearer token against `ingestion_users.api_key_sha256` (SHA256 of raw token); stores JSON payload keyed by **`idempotency_key`** per user (duplicate replays get the existing `batch_id`, no duplicate job). |
+| RQ worker | Runs `process_batch`: inserts `connection_snapshots`, emits `import_events` (`new` vs `noop` by watermark of distinct keys seen before for that user). |
+| `POST /api/contacts/import/linkedin` | Server-only bridge: skips contacts whose **`linkedinExternalKey`** already exists; otherwise appends Dex entries with LinkedIn importer tags as sent by Python. |
+
+Local orchestration uses **`docker-compose.yml`** at repo root (`postgres`, `redis`, `importer-api`, `importer-worker`). Set **`CONTACTDEX_IMPORT_SECRET`** in the Compose environment **and** in the Next.js process so bridge calls succeed **and match** importer `CONTACTDEX_IMPORT_SECRET`.
+
+**Development token** (matches seeded migration user SHA256): `contactdex-aggr-webhook-token` → used as the raw Bearer secret when calling `/webhooks/connections` against a migrated DB.
+

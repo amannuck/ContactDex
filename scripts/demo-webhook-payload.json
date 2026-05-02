@@ -1,0 +1,320 @@
+{
+  "idempotency_key": "placeholder-overwritten-by-script",
+  "connections": [
+    {
+      "name": "Jordan Lee",
+      "headline": "Staff Engineer — payments infra, formerly at a bank unicorn",
+      "company": "Stripe",
+      "profileUrl": "https://www.linkedin.com/in/demo-jordan-lee-devconf",
+      "avatar": "https://api.dicebear.com/9.x/personas/png?seed=jordanLEEdevconf&scale=118"
+    },
+    {
+      "name": "Sara Malik",
+      "headline": "Lead product designer · design systems nerd · cat parent",
+      "company": "Linear",
+      "profileUrl": "https://www.linkedin.com/in/demo-sara-malik-linear",
+      "avatar": "https://i.pravatar.cc/240?img=17"
+    },
+    {
+      "name": "Alex Chen",
+      "headline": "ML infra • torch → production • Québec",
+      "company": "Databricks",
+      "profileUrl": "https://www.linkedin.com/in/demo-alex-chen-ml",
+      "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=AlexChenDatabricks&flip=true"
+    },
+    {
+      "name": "Priya Nandakumar",
+      "headline": "Technical PM driving self-serve growth experiments",
+      "company": "Notion",
+      "profileUrl": "https://www.linkedin.com/in/demo-priya-notion-pm",
+      "avatar": "https://i.pravatar.cc/240?img=32"
+    },
+    {
+      "name": "Marcus Holt",
+      "headline": "Founder-operator | B2B scheduling | exited once, building again",
+      "company": "Acme Scheduling",
+      "profileUrl": "https://www.linkedin.com/in/demo-marcus-holt-founder",
+      "avatar": "https://api.dicebear.com/9.x/notionists/png?seed=marcusholtFOUNDER&hair=variant16"
+    },
+    {
+      "name": "Elena Vogt",
+      "headline": "Security researcher · cryptography & formal methods",
+      "company": "Trail of Bits",
+      "profileUrl": "https://www.linkedin.com/in/demo-elena-vogt-security",
+      "avatar": "https://i.pravatar.cc/240?img=45"
+    },
+    {
+      "name": "Diego Ramos",
+      "headline": "Flutter lead • 6 years mobile • México City ⇄ SF",
+      "company": "Superwall",
+      "profileUrl": "https://www.linkedin.com/in/demo-diego-ramos-mobile",
+      "avatar": "https://api.dicebear.com/9.x/lorelei/png?seed=diegoSUPER&color=ffb703"
+    },
+    {
+      "name": "Amira Hassan",
+      "headline": "Data engineer (dbt / Snowflake)",
+      "company": "Snowflake",
+      "profileUrl": "https://www.linkedin.com/in/demo-amira-hassan-de",
+      "avatar": "https://i.pravatar.cc/240?img=9"
+    },
+    {
+      "name": "Chris Okafor",
+      "headline": "Solutions architect × creative technologist",
+      "company": "Vercel",
+      "profileUrl": "https://www.linkedin.com/in/demo-chris-okafor-se",
+      "avatar": "https://api.dicebear.com/9.x/big-smile/png?seed=chrisokafor992"
+    },
+    {
+      "name": "Riley Park",
+      "headline": "Community magic — badges, lounges, hallway serendipity",
+      "company": "DevConf",
+      "profileUrl": "https://www.linkedin.com/in/demo-riley-park-events",
+      "avatar": "https://i.pravatar.cc/240?img=22"
+    },
+    {
+      "name": "Taylor Brooks",
+      "headline": "People partner · leveling & comp · pronouns she/they",
+      "company": "Personio",
+      "profileUrl": "https://www.linkedin.com/in/demo-taylor-brooks-hr",
+      "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=taylorbrookshr&eyes=happy"
+    },
+    {
+      "name": "Sam Okonkwo",
+      "headline": "Roboticist • ROS 2 • humanoid manipulation",
+      "company": "Figure",
+      "profileUrl": "https://www.linkedin.com/in/demo-sam-okonkwo-robotics",
+      "avatar": "https://i.pravatar.cc/240?img=51"
+    },
+    {
+      "name": "Morgan Singh",
+      "headline": "Night-shift SRE. Incident commander. Postmortems with soul.",
+      "company": "Datadog",
+      "profileUrl": "https://www.linkedin.com/in/demo-morgan-singh-sre",
+      "avatar": "https://api.dicebear.com/9.x/adventurer/png?seed=MorganSinghDOG"
+    },
+    {
+      "name": "Casey Nguyen",
+      "headline": "Brand & narrative • podcast host • skeptical of vibes-only decks",
+      "company": "Descript",
+      "profileUrl": "https://www.linkedin.com/in/demo-casey-nguyen-brand",
+      "avatar": "https://i.pravatar.cc/240?img=36"
+    },
+    {
+      "name": "Jamie Foster",
+      "headline": "Partner @ seed fund → climate + infra + weird hardware",
+      "company": "Example Ventures",
+      "profileUrl": "https://www.linkedin.com/in/demo-jamie-foster-vc",
+      "avatar": "https://api.dicebear.com/9.x/bottts/png?seed=jamievoice77"
+    },
+    {
+      "name": "Quinn Washington",
+      "headline": "Principal PM — editor & multiplayer canvas",
+      "company": "Figma",
+      "profileUrl": "https://www.linkedin.com/in/demo-quinn-washington-figma",
+      "avatar": "https://i.pravatar.cc/240?img=12"
+    },
+    {
+      "name": "Drew Kim",
+      "headline": "Empathetic EM — platform tribe — hiring senior Rust",
+      "company": "GitHub",
+      "profileUrl": "https://www.linkedin.com/in/demo-drew-kim-github",
+      "avatar": "https://api.dicebear.com/9.x/pixel-art/png?seed=DrewGithubEM"
+    },
+    {
+      "name": "Blair Martinez",
+      "headline": "Dev advocate / live-coder — show, don’t slideware",
+      "company": "Cursor",
+      "profileUrl": "https://www.linkedin.com/in/demo-blair-martinez-devrel",
+      "avatar": "https://i.pravatar.cc/240?img=27"
+    },
+    {
+      "name": "Reese Thompson",
+      "headline": "Sr. SA — migrated 200+ fleets off legacy mainframes (true story)",
+      "company": "AWS",
+      "profileUrl": "https://www.linkedin.com/in/demo-reese-thompson-aws",
+      "avatar": "https://api.dicebear.com/9.x/initials/png?seed=RThompson&backgroundType=gradientLinear"
+    },
+    {
+      "name": "Avery Patel",
+      "headline": "Director of Design · tokens · a11y · hiring remote-first",
+      "company": "Figma",
+      "profileUrl": "https://www.linkedin.com/in/demo-avery-patel-design",
+      "avatar": "https://i.pravatar.cc/240?img=44"
+    },
+    {
+      "name": "Skyler Morris",
+      "headline": "Senior iOS — SwiftUI skeptic turned convert",
+      "company": "Lyft",
+      "profileUrl": "https://www.linkedin.com/in/demo-skyler-morris-ios",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/png?seed=skylift42"
+    },
+    {
+      "name": "Cameron Wolfe",
+      "headline": "Growth PM experimenting with outbound × product cues",
+      "company": "Loom",
+      "profileUrl": "https://www.linkedin.com/in/demo-cameron-wolfe-pm",
+      "avatar": "https://i.pravatar.cc/240?img=19"
+    },
+    {
+      "name": "Rowan Diaz",
+      "headline": "Frontend staff — Remix, suspense boundaries, polish",
+      "company": "Remix",
+      "profileUrl": "https://www.linkedin.com/in/demo-rowan-diaz-fe",
+      "avatar": "https://api.dicebear.com/9.x/lorelei-neutral/png?seed=rowandiazneutral"
+    },
+    {
+      "name": "Finley Gupta",
+      "headline": "Workflows nerd — Temporal, Saga patterns, saga cleanup",
+      "company": "Temporal",
+      "profileUrl": "https://www.linkedin.com/in/demo-finley-gupta-backend",
+      "avatar": "https://i.pravatar.cc/240?img=59"
+    },
+    {
+      "name": "River Oshiro",
+      "headline": "Cofounder / CTO • serverless Postgres dreams",
+      "company": "Convex",
+      "profileUrl": "https://www.linkedin.com/in/demo-river-oshiro-cto",
+      "avatar": "https://api.dicebear.com/9.x/shapes/png?seed=riverconvexcto"
+    },
+    {
+      "name": "Phoenix Alden",
+      "headline": "Infrastructure seed investor — cheque size: honest",
+      "company": "Beacon Capital",
+      "profileUrl": "https://www.linkedin.com/in/demo-phoenix-alden-vc",
+      "avatar": "https://i.pravatar.cc/240?img=7"
+    },
+    {
+      "name": "Sage Miller",
+      "headline": "Sr. TPM • checkout • Black Friday survivor x5",
+      "company": "Shopify",
+      "profileUrl": "https://www.linkedin.com/in/demo-sage-miller-tpm",
+      "avatar": "https://api.dicebear.com/9.x/open-peeps/png?seed=SageMillerTPM344"
+    },
+    {
+      "name": "Reese Murphy",
+      "headline": "QA architect — browsers are chaos engines",
+      "company": "Microsoft (Playwright team)",
+      "profileUrl": "https://www.linkedin.com/in/demo-reese-murphy-qa",
+      "avatar": "https://i.pravatar.cc/240?img=33"
+    },
+    {
+      "name": "Logan Byrne",
+      "headline": "Making dashboards people actually trust",
+      "company": "Grafana Labs",
+      "profileUrl": "https://www.linkedin.com/in/demo-logan-byrne-obs",
+      "avatar": "https://api.dicebear.com/9.x/micah/png?seed=loganbyrneGRAF"
+    },
+    {
+      "name": "Hayden Lewis",
+      "headline": "Maintainer: 3 CLIs you've probably aliased accidentally",
+      "company": "",
+      "profileUrl": "https://www.linkedin.com/in/demo-hayden-lewis-oss",
+      "avatar": "https://i.pravatar.cc/240?img=60"
+    },
+    {
+      "name": "Blake Turner",
+      "headline": "Associate consultant — benchmarking SaaS & infra roll-ups",
+      "company": "Bain & Company",
+      "profileUrl": "https://www.linkedin.com/in/demo-blake-turner-consult",
+      "avatar": "https://api.dicebear.com/9.x/identicon/png?seed=bainblake928"
+    },
+    {
+      "name": "Devon Clark",
+      "headline": "Associate — venture formation, secondaries",
+      "company": "Gunderson Dettmer",
+      "profileUrl": "https://www.linkedin.com/in/demo-devon-clark-law",
+      "avatar": "https://i.pravatar.cc/240?img=11"
+    },
+    {
+      "name": "Robin Singh",
+      "headline": "Freelance product designer — decks, dashboards, donuts",
+      "company": "",
+      "profileUrl": "https://www.linkedin.com/in/demo-robin-singh-ux",
+      "avatar": "https://api.dicebear.com/9.x/thumbs/png?seed=robinfreela33"
+    },
+    {
+      "name": "Frankie Rivera",
+      "headline": "Head of video — micro-docs that feel like TikTok beats",
+      "company": "Moment",
+      "profileUrl": "https://www.linkedin.com/in/demo-frankie-rivera-video",
+      "avatar": "https://i.pravatar.cc/240?img=28"
+    },
+    {
+      "name": "Remy Katz",
+      "headline": "Applied scientist — evals were my personality first",
+      "company": "Hugging Face",
+      "profileUrl": "https://www.linkedin.com/in/demo-remy-katz-ml",
+      "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=remyHFscience"
+    },
+    {
+      "name": "Stevie Hahn",
+      "headline": "Strategic finance — bottoms-up models that CFOs tolerate",
+      "company": "Brex",
+      "profileUrl": "https://www.linkedin.com/in/demo-stevie-hahn-finance",
+      "avatar": "https://i.pravatar.cc/240?img=48"
+    },
+    {
+      "name": "Lou Morris",
+      "headline": "Partnerships BD — hyperscalers + fintech",
+      "company": "Stripe",
+      "profileUrl": "https://www.linkedin.com/in/demo-lou-morris-bd",
+      "avatar": "https://api.dicebear.com/9.x/big-ears-neutral/png?seed=loustripebd909"
+    },
+    {
+      "name": "Kit Yamamoto",
+      "headline": "Technical recruiting leader — infra & platform hires",
+      "company": "Ramp",
+      "profileUrl": "https://www.linkedin.com/in/demo-kit-yamamoto-recruiting",
+      "avatar": "https://i.pravatar.cc/240?img=35"
+    },
+    {
+      "name": "Jess Fox",
+      "headline": "People partner for messy org charts (with love)",
+      "company": "Airbnb",
+      "profileUrl": "https://www.linkedin.com/in/demo-jess-fox-people",
+      "avatar": "https://api.dicebear.com/9.x/croodles/png?seed=jessbnbfox"
+    },
+    {
+      "name": "Bo Carter",
+      "headline": "Fractional CFO for Series A nightmares",
+      "company": "Independent / Mercury alum",
+      "profileUrl": "https://www.linkedin.com/in/demo-bo-carter-cfo",
+      "avatar": "https://i.pravatar.cc/240?img=15"
+    },
+    {
+      "name": "Nikhil Shah",
+      "headline": "Postgres obsessive — branching, Neon, nightmares about VACUUM",
+      "company": "Neon",
+      "profileUrl": "https://www.linkedin.com/in/demo-nikhil-shah-neon",
+      "avatar": "https://api.dicebear.com/9.x/miniavs/png?seed=NikhNeonPg"
+    },
+    {
+      "name": "Zoe Williams",
+      "headline": "Clinical ops meets product — oncology navigation",
+      "company": "Helix Health",
+      "profileUrl": "https://www.linkedin.com/in/demo-zoe-williams-founder",
+      "avatar": "https://i.pravatar.cc/240?img=54"
+    },
+    {
+      "name": "Omar Farouk",
+      "headline": "Edge apps on tiny VMs — happiest near `flyctl deploy` green",
+      "company": "Fly.io",
+      "profileUrl": "https://www.linkedin.com/in/demo-omar-farouk-fly",
+      "avatar": "https://api.dicebear.com/9.x/bottts-neutral/png?seed=omarfaroukEDGE"
+    },
+    {
+      "name": "Mina Kouri",
+      "headline": "Designer for internal admins — spreadsheets are users too",
+      "company": "Retool",
+      "profileUrl": "https://www.linkedin.com/in/demo-mina-kouri-retool",
+      "avatar": "https://i.pravatar.cc/240?img=41"
+    },
+    {
+      "name": "Jules Fontaine",
+      "headline": "IAM & zero-trust skeptic → practitioner — MFA everywhere",
+      "company": "Okta",
+      "profileUrl": "https://www.linkedin.com/in/demo-jules-fontaine-sec",
+      "avatar": "https://api.dicebear.com/9.x/avataaars/png?seed=jules_okta_IAM_face"
+    }
+  ]
+}

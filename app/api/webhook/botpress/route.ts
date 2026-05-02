@@ -3,8 +3,14 @@ import type { Contact } from "@/lib/types";
 import {
   mutateContacts,
   nextContactId,
+  readContacts,
   stageFromInteractionCount,
 } from "@/lib/contacts";
+import {
+  buildAssistantResponse,
+  type AssistantPayload,
+} from "@/lib/contact-relevance";
+import { resolveContextualQuizRound } from "@/lib/contextual-quiz";
 
 type CreatePayload = {
   action: "create";
@@ -23,6 +29,16 @@ type LogPayload = {
     note: string;
     date?: string;
   };
+};
+
+type AssistantHookPayload = {
+  action: "assistant";
+  data?: AssistantPayload & { query?: string };
+};
+
+type QuizContextHookPayload = {
+  action: "quiz_contextual";
+  data?: { query?: string; limit?: number };
 };
 
 export async function POST(request: Request) {
@@ -45,7 +61,7 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "name required" }, { status: 400 });
       }
 
-      let created!: Contact;
+      let created: Contact | undefined;
 
       await mutateContacts((contacts) => {
         const id = nextContactId(contacts);
@@ -63,7 +79,13 @@ export async function POST(request: Request) {
         created = entry;
       });
 
-      return NextResponse.json({ ok: true, contact: created! });
+      if (!created) {
+        return NextResponse.json(
+          { error: "could not persist contact" },
+          { status: 500 },
+        );
+      }
+      return NextResponse.json({ ok: true, contact: created });
     }
 
     if (payload?.action === "log") {
@@ -101,8 +123,46 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, contact: updated });
     }
 
+    if (payload?.action === "assistant") {
+      const raw = payload as AssistantHookPayload;
+      const data = raw.data ?? {};
+      const contacts = await readContacts();
+      const result = buildAssistantResponse(contacts, {
+        query: typeof data.query === "string" ? data.query : undefined,
+        mode: data.mode,
+        limit: data.limit,
+      });
+      if (!result.ok) {
+        return NextResponse.json(result, { status: 400 });
+      }
+      return NextResponse.json({ ok: true, assistant: result });
+    }
+
+    if (payload?.action === "quiz_contextual") {
+      const raw = payload as QuizContextHookPayload;
+      const q =
+        typeof raw.data?.query === "string" ? raw.data.query.trim() : "";
+      const contacts = await readContacts();
+      const poolCap =
+        typeof raw.data?.limit === "number" &&
+        Number.isFinite(raw.data.limit) &&
+        raw.data.limit >= 1
+          ? Math.floor(raw.data.limit)
+          : undefined;
+
+      const result = resolveContextualQuizRound(q, contacts, { poolCap });
+
+      if (!result.ok) {
+        return NextResponse.json({ error: result.error }, { status: 404 });
+      }
+      return NextResponse.json({ ok: true, quiz: result.round });
+    }
+
     return NextResponse.json(
-      { error: 'unknown action; use "create" or "log"' },
+      {
+        error:
+          'unknown action — use create | log | assistant | quiz_contextual',
+      },
       { status: 400 },
     );
   } catch {

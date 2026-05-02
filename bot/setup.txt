@@ -8,10 +8,47 @@ Scaffold ADK beside this app per botpress-skill.md:
   cd bot && npx @botpress/cli@latest init ...
 
 HTTP integration with ContactDex (BASE = your ContactDex URL):
-  POST BASE/api/webhook/botpress — {"action":"create","data":{name,bio?,tags?,moveset?}}
-                             or {"action":"log","data":{id,note,date?}}
-  GET  BASE/api/quiz/random
-  GET  BASE/api/contacts?sort=stale
+
+  POST BASE/api/webhook/botpress
+
+    • {"action":"create","data":{name,bio?,tags?,moveset?}}
+    • {"action":"log","data":{id,note,date?}}
+
+    • {"action":"assistant","data":{
+         "query"?: "natural language event brief",
+         "mode"?: "auto" | "event" | "reconnect",
+         "limit"?: number,
+       }}
+
+      Responses look like:
+      { "ok": true, "assistant": { "summary": "...", "matches": [ {id,name,tags,reasons,staleDaysApprox} ], "mode": "..." } }
+
+      Modes:
+      - "event" — score overlap between your brief and tags / bios / moves / interaction logs (AI hackathons, investor weeks, etc.).
+      - "reconnect" — rank by staleness; omit query (or leave it empty) for a pure cold-contact leaderboard.
+      - "auto"/omit — detect reconnect phrasing; otherwise treat message as an event brief.
+
+    • {"action":"quiz_contextual","data":{ "query": "...", "limit"?: number }}
+      Mirrors POST BASE/api/quiz/contextual — event-scoped flashcards (scoreEventRelevance pool only).
+      Success:
+      { "ok": true, "quiz": { "hiddenField", "display", "answer", "id", "movesetIndex?", "choices"? } }
+
+      Quiz JSON extras:
+      - "choices": exactly four strings (shuffled), one equals "answer", when hiddenField is "bio" or "moveset" and enough distractors exist; Study uses them as multiple choice. Omitted → free-text guessing for that round (still true for hiddenField "name").
+
+  POST BASE/api/assistant/context — same JSON body you would place in assistant.data above (Postman/UI).
+
+  POST BASE/api/quiz/contextual — { "query": "event brief...", "limit"?: number (pool cap ≤ 40, default ~12 top scores) }
+
+  GET BASE/api/quiz/random — classic Dex-wide random round (same JSON schema as contextual success body).
+
+  Both quiz routes may return optional "choices" (see quiz_contextual success note above).
+
+  GET BASE/api/contacts?sort=stale
 
 Embed: set NEXT_PUBLIC_BOTPRESS_WEBCHAT_CONFIG in repo root .env.local to Cloud JSON;
 see https://botpress.com/docs/webchat/get-started/embedding-webchat.md
+
+Study UI (/study): optional textarea + ?context=<brief> presets the contextual quiz.
+
+The Event prep FAB (bottom-left) offers “Quiz me on these picks → Study” after event-mode matches.

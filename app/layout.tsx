@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AppNav from "@/components/AppNav";
-import BotpressWidget from "@/components/BotpressWidget";
+import EventPrepAssistant from "@/components/EventPrepAssistant";
 
 export const metadata: Metadata = {
   title: "ContactDex",
   description:
-    "Pokédex-style personal CRM with Professor Oak-powered capture and study mode.",
+    "Personal relationship CRM — gallery, study mode, and linked imports.",
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className="antialiased font-sans text-slate-100">
         <AppNav />
         {children}
-        <BotpressWidget />
+        <EventPrepAssistant />
       </body>
     </html>
   );

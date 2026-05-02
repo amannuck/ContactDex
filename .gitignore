@@ -1,6 +1,44 @@
-.env
-.env.local
-.next/
+# Dependencies
 node_modules/
+
+# Env & secrets (`/.env.example` is safe and should stay committed.)
+.env
+.env*.local
+
+# Next.js
+.next/
+out/
+
+# Builds / tooling
 dist/
 *.tsbuildinfo
+.turbo/
+.vercel/
+
+# Logs / debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Coverage (if you add tests later)
+coverage/
+
+# Python (importer service)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+
+# Certificates (local HTTPS, etc.)
+*.pem
+
+# Botpress ADK (when you scaffold under `bot/`)
+**/agent.local.json
+**/.adk/
+/payload.json

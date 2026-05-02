@@ -13,4 +13,6 @@ export interface Contact {
   interactions: Interaction[];
   createdAt: string;
   avatar?: string;
+  /** Dedup key from LinkedIn / aggregator ingestion (opaque string). */
+  linkedinExternalKey?: string;
 }

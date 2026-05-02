@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: contactdex
+      POSTGRES_PASSWORD: contactdex
+      POSTGRES_DB: importer
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U contactdex -d importer"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  importer-api:
+    build:
+      context: ./services/importer
+    ports:
+      - "8010:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://contactdex:contactdex@postgres:5432/importer
+      REDIS_URL: redis://redis:6379/0
+      RQ_QUEUE_NAME: ingestion
+      CONTACTDEX_BRIDGE_URL: http://host.docker.internal:3000/api/contacts/import/linkedin
+      CONTACTDEX_IMPORT_SECRET: ${CONTACTDEX_IMPORT_SECRET:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  importer-worker:
+    build:
+      context: ./services/importer
+    command: rq worker ingestion --url redis://redis:6379/0
+    environment:
+      DATABASE_URL: postgresql+psycopg://contactdex:contactdex@postgres:5432/importer
+      REDIS_URL: redis://redis:6379/0
+      RQ_QUEUE_NAME: ingestion
+      CONTACTDEX_BRIDGE_URL: http://host.docker.internal:3000/api/contacts/import/linkedin
+      CONTACTDEX_IMPORT_SECRET: ${CONTACTDEX_IMPORT_SECRET:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      importer-api:
+        condition: service_started
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

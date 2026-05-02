@@ -15,11 +15,19 @@ export default function ContactCard({ contact }: Props) {
       className="group flex flex-col rounded-2xl border border-slate-700/70 bg-[#1a222c]/90 p-5 shadow-lg shadow-black/20 transition hover:border-blue-400/35 hover:shadow-xl"
     >
       <div className="mb-4 flex items-start justify-between gap-3">
-        <div
-          className={`flex size-14 shrink-0 items-center justify-center rounded-full text-lg font-bold text-white shadow-inner ${bg}`}
-        >
-          {initials(contact.name)}
-        </div>
+        {contact.avatar ? (
+          <img
+            src={contact.avatar}
+            alt=""
+            className="size-14 shrink-0 rounded-full object-cover shadow-inner ring-2 ring-slate-600/80"
+          />
+        ) : (
+          <div
+            className={`flex size-14 shrink-0 items-center justify-center rounded-full text-lg font-bold text-white shadow-inner ${bg}`}
+          >
+            {initials(contact.name)}
+          </div>
+        )}
         <span className="font-mono text-sm text-slate-400 transition group-hover:text-slate-200">
           #{contact.id}
         </span>

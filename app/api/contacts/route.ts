@@ -56,6 +56,9 @@ export async function POST(request: Request) {
     const moveset = Array.isArray(body?.moveset)
       ? body.moveset.filter((x: unknown) => typeof x === "string")
       : [];
+    const avatarRaw =
+      typeof body?.avatar === "string" ? body.avatar.trim() : "";
+    const avatar = avatarRaw || undefined;
 
     if (!name) {
       return NextResponse.json({ error: "name required" }, { status: 400 });
@@ -74,6 +77,7 @@ export async function POST(request: Request) {
         stage: 0,
         interactions: [],
         createdAt: new Date().toISOString(),
+        ...(avatar ? { avatar } : {}),
       };
       contacts.push(entry);
       created = entry;
