@@ -25,7 +25,7 @@ export default async function LeaderboardPage() {
       </Link>
 
       <header className="mb-10">
-        <h1 className="font-pixel-display text-lg font-normal leading-snug text-white sm:text-xl md:text-2xl">
+        <h1 className="font-pixel-display text-2xl font-normal leading-snug text-white sm:text-3xl md:text-4xl">
           Evolution leaderboard
         </h1>
         <p className="mt-2 max-w-xl text-slate-400">

@@ -254,10 +254,10 @@ export default function EventPrepAssistant() {
       >
         <header className="mb-3 flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-0.5">
-            <p className="font-pixel-display text-[0.5rem] uppercase tracking-[0.12em] text-emerald-300/90">
+            <p className="font-pixel-display text-xs uppercase tracking-[0.12em] text-emerald-300/90">
               Context helper
             </p>
-            <h2 className="font-pixel-display text-[0.65rem] font-normal leading-tight text-white sm:text-xs">
+            <h2 className="font-pixel-display text-sm font-normal leading-tight text-white sm:text-base">
               Dex strategist
             </h2>
             <p className="text-[10px] leading-snug text-slate-500 sm:text-[11px]">

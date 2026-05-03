@@ -117,7 +117,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
           </div>
 
           <div className="mt-8">
-            <p className="mb-2 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
+            <p className="mb-2 flex justify-between text-xs font-semibold uppercase tracking-wider text-slate-400 sm:text-sm">
               <span>Evolution path</span>
               <span className="normal-case text-emerald-300">
                 {stageLabel(contact.stage)}
@@ -153,14 +153,14 @@ export default function ContactDetailClient({ contact: initial }: Props) {
 
         <div className="space-y-8 px-8 py-8">
           <section>
-            <h2 className="mb-3 font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-400 sm:text-xs">
+            <h2 className="mb-3 font-pixel-display text-xs font-normal uppercase tracking-widest text-slate-400 sm:text-sm">
               Bio & context
             </h2>
             <p className="leading-relaxed text-slate-200">{contact.bio}</p>
           </section>
 
           <section>
-            <h2 className="mb-4 font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-400 sm:text-xs">
+            <h2 className="mb-4 font-pixel-display text-xs font-normal uppercase tracking-widest text-slate-400 sm:text-sm">
               Moveset
             </h2>
             <ul className="space-y-2">
@@ -180,7 +180,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
       </div>
 
       <section className="mt-12 font-pixel">
-        <h2 className="mb-6 font-pixel-display text-base font-normal text-white sm:text-lg">
+        <h2 className="mb-6 font-pixel-display text-lg font-normal text-white sm:text-xl">
           Interaction log
         </h2>
         {interactions.length === 0 ? (
@@ -203,7 +203,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
       </section>
 
       <section className="mt-12 border-t border-slate-700/60 pt-8 font-pixel">
-        <h2 className="mb-2 font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-500 sm:text-xs">
+        <h2 className="mb-2 font-pixel-display text-xs font-normal uppercase tracking-widest text-slate-500 sm:text-sm">
           Manage connection
         </h2>
         <p className="mb-4 text-sm text-slate-400">

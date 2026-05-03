@@ -17,7 +17,7 @@ export default function AppNav() {
               ContactDex
             </span>
           </Link>
-          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm uppercase tracking-wider text-slate-300 font-pixel">
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-base uppercase tracking-wider text-slate-300 font-pixel md:text-lg">
             <Link href="/" className="transition hover:text-emerald-300">
               Gallery
             </Link>

@@ -246,7 +246,7 @@ export default function StudyModeClient({ initialContext }: Props) {
         </Link>
       </div>
 
-      <h1 className="mb-6 text-center font-pixel-display text-xl font-normal leading-snug text-white sm:text-2xl">
+      <h1 className="mb-6 text-center font-pixel-display text-2xl font-normal leading-snug text-white sm:text-3xl md:text-4xl">
         Study mode
       </h1>
       <p className="mb-6 text-center text-slate-400">
@@ -322,7 +322,7 @@ export default function StudyModeClient({ initialContext }: Props) {
 
       {quizPhase === "complete" && !loading && (
         <div className="rounded-3xl border border-emerald-500/35 bg-[#14221a]/95 p-8 shadow-xl">
-          <h2 className="font-pixel-display text-lg font-normal text-white sm:text-xl">
+          <h2 className="font-pixel-display text-xl font-normal text-white sm:text-2xl">
             Quiz complete
           </h2>
           <p className="mt-2 text-slate-400">
@@ -330,7 +330,7 @@ export default function StudyModeClient({ initialContext }: Props) {
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-slate-700 bg-black/25 p-5">
-              <p className="font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-500">
+              <p className="font-pixel-display text-sm font-normal uppercase tracking-widest text-slate-500 sm:text-base">
                 Score
               </p>
               <p className="mt-1 font-pixel-display text-2xl font-normal tabular-nums text-emerald-200 sm:text-3xl">
@@ -408,7 +408,7 @@ export default function StudyModeClient({ initialContext }: Props) {
           </div>
 
           <p className="mb-8 leading-relaxed text-slate-200">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            <span className="text-sm font-semibold uppercase tracking-wider text-slate-500">
               Bio
               <br />
             </span>
@@ -416,7 +416,7 @@ export default function StudyModeClient({ initialContext }: Props) {
           </p>
 
           <div className="mb-10">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">
               Moveset
             </p>
             <ul className="space-y-2">
@@ -545,7 +545,7 @@ export default function StudyModeClient({ initialContext }: Props) {
 
       <div className="mt-10 rounded-2xl border border-slate-700 bg-[#161d2788] px-6 py-6 sm:px-7 sm:py-6">
         <div className="space-y-4">
-          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <label className="block text-sm font-semibold uppercase tracking-wider text-slate-400">
             Event brief (optional)
           </label>
           <textarea

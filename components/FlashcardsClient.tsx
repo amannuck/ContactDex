@@ -201,7 +201,7 @@ export default function FlashcardsClient({ initialContext }: Props) {
         </button>
       </div>
 
-      <h1 className="mb-1 shrink-0 text-center font-pixel-display text-lg font-normal text-white sm:text-xl">
+      <h1 className="mb-1 shrink-0 text-center font-pixel-display text-2xl font-normal text-white sm:text-3xl md:text-4xl">
         Dex flashcards
       </h1>
       <p className="mb-4 shrink-0 px-2 text-center text-xs text-slate-500 sm:text-sm">
@@ -331,7 +331,7 @@ export default function FlashcardsClient({ initialContext }: Props) {
                     WebkitBackfaceVisibility: "hidden",
                   }}
                 >
-                  <p className="font-pixel-display text-[0.7rem] uppercase tracking-[0.22em] text-slate-500">
+                  <p className="font-pixel-display text-sm uppercase tracking-[0.22em] text-slate-500">
                     Study
                   </p>
                   <p className="mt-1.5 font-mono text-sm text-blue-400/90">
@@ -377,7 +377,7 @@ export default function FlashcardsClient({ initialContext }: Props) {
                   }}
                 >
                   <div className="shrink-0 border-b border-emerald-500/25 px-4 py-2 text-center">
-                    <p className="font-pixel-display text-[0.7rem] uppercase tracking-[0.18em] text-emerald-300/90">
+                    <p className="font-pixel-display text-sm uppercase tracking-[0.18em] text-emerald-300/90">
                       Answer
                     </p>
                   </div>
