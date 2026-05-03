@@ -28,25 +28,27 @@ export type ContextualQuizFailure = {
 
 export type ContextualQuizSuccess = { ok: true; round: QuizRoundResponse };
 
+type PoolBuild =
+  | ContextualQuizFailure
+  | { ok: true; pool: Contact[]; brief: string };
+
 /**
- * Exactly one contextual flashcard drawn from contacts that pass event-scoring —
- * reuse {@link scoreEventRelevance}; never staleness reconnect ranking.
+ * Shared relevance pool for contextual quiz rounds and flashcard decks.
  */
-export function resolveContextualQuizRound(
+function buildContextualPool(
   query: string,
   contacts: Contact[],
   options?: {
-    /** Max distinct contacts in the roulette pool before uniform pick (top scores first). */
     poolCap?: number;
-    /** Override relevance floor (default MIN_SCORE_THRESHOLD). */
     minScore?: number;
   },
-): ContextualQuizSuccess | ContextualQuizFailure {
+): PoolBuild {
   const q = typeof query === "string" ? query.trim() : "";
   if (!q) {
     return {
       ok: false,
-      error: "Provide a non-empty contextual brief describing the conference, theme, or stack.",
+      error:
+        "Provide a non-empty contextual brief describing the conference, theme, or stack.",
     };
   }
 
@@ -57,7 +59,6 @@ export function resolveContextualQuizRound(
     };
   }
 
-  /* Same tokenization gate as scorer (stopwords stripped). */
   if (tokensFrom(q).length === 0) {
     return {
       ok: false,
@@ -101,7 +102,48 @@ export function resolveContextualQuizRound(
     };
   }
 
-  const contact = filtered[randomInt(filtered.length)]!;
+  return { ok: true, pool: filtered, brief: q };
+}
+
+export type ContextualPoolSuccess = {
+  ok: true;
+  contacts: Contact[];
+  brief: string;
+};
+
+/**
+ * All contacts from your Dex that match an event brief (same pool as contextual quiz).
+ */
+export function resolveContextualContactPool(
+  query: string,
+  contacts: Contact[],
+  options?: {
+    poolCap?: number;
+    minScore?: number;
+  },
+): ContextualPoolSuccess | ContextualQuizFailure {
+  const built = buildContextualPool(query, contacts, options);
+  if (!built.ok) return built;
+  return { ok: true, contacts: built.pool, brief: built.brief };
+}
+
+/**
+ * Exactly one contextual flashcard drawn from contacts that pass event-scoring —
+ * reuse {@link scoreEventRelevance}; never staleness reconnect ranking.
+ */
+export function resolveContextualQuizRound(
+  query: string,
+  contacts: Contact[],
+  options?: {
+    /** Max distinct contacts in the roulette pool before uniform pick (top scores first). */
+    poolCap?: number;
+    /** Override relevance floor (default MIN_SCORE_THRESHOLD). */
+    minScore?: number;
+  },
+): ContextualQuizSuccess | ContextualQuizFailure {
+  const built = buildContextualPool(query, contacts, options);
+  if (!built.ok) return built;
+  const contact = built.pool[randomInt(built.pool.length)]!;
   const round = buildQuizRound(contact, contacts);
   return { ok: true, round };
 }

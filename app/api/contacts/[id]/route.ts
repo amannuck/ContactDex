@@ -50,3 +50,20 @@ export async function PATCH(request: Request, context: Params) {
     return NextResponse.json({ error: "invalid body" }, { status: 400 });
   }
 }
+
+export async function DELETE(_request: Request, context: Params) {
+  const { id } = await context.params;
+  let removed = false;
+
+  await mutateContacts((contacts) => {
+    const idx = contacts.findIndex((c) => c.id === id);
+    if (idx === -1) return;
+    contacts.splice(idx, 1);
+    removed = true;
+  });
+
+  if (!removed) {
+    return NextResponse.json({ error: "not found" }, { status: 404 });
+  }
+  return NextResponse.json({ ok: true });
+}

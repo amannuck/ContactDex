@@ -15,7 +15,7 @@ export default async function StudyPage(props: {
         : undefined;
 
   return (
-    <main className="mx-auto min-h-screen max-w-xl px-4 py-12">
+    <main className="mx-auto min-h-screen max-w-xl px-4 py-12 font-pixel">
       <StudyModeClient initialContext={ctx} />
     </main>
   );

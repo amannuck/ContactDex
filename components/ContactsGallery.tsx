@@ -106,11 +106,11 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
         : null;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-8 font-pixel">
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white">
-            Dex Gallery
+          <h1 className="font-pixel-display text-lg font-normal leading-snug text-white sm:text-xl md:text-2xl">
+            Dex gallery
           </h1>
           <p className="mt-1 text-slate-400">
             Search, filter, open a card — or add one manually below.

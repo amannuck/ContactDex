@@ -16,7 +16,8 @@ export async function POST(request: Request) {
     const modeParsed =
       parsed.mode === "auto" ||
       parsed.mode === "event" ||
-      parsed.mode === "reconnect"
+      parsed.mode === "reconnect" ||
+      parsed.mode === "connections"
         ? parsed.mode
         : undefined;
 

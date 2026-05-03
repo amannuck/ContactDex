@@ -11,6 +11,7 @@ import {
   type AssistantPayload,
 } from "@/lib/contact-relevance";
 import { resolveContextualQuizRound } from "@/lib/contextual-quiz";
+import { buildRandomDexDeck, FLASHCARD_DECK_MAX } from "@/lib/flashcard-deck";
 
 type CreatePayload = {
   action: "create";
@@ -39,6 +40,11 @@ type AssistantHookPayload = {
 type QuizContextHookPayload = {
   action: "quiz_contextual";
   data?: { query?: string; limit?: number };
+};
+
+type FlashcardsRandomPayload = {
+  action: "flashcards_random";
+  data?: { limit?: number };
 };
 
 export async function POST(request: Request) {
@@ -158,10 +164,34 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, quiz: result.round });
     }
 
+    if (payload?.action === "flashcards_random") {
+      const raw = payload as FlashcardsRandomPayload;
+      const limRaw =
+        typeof raw.data?.limit === "number" && Number.isFinite(raw.data.limit)
+          ? raw.data.limit
+          : 18;
+      const cap = Math.max(
+        1,
+        Math.min(Math.floor(limRaw), FLASHCARD_DECK_MAX),
+      );
+      const contacts = await readContacts();
+      if (contacts.length === 0) {
+        return NextResponse.json(
+          { error: "No contacts in Dex." },
+          { status: 404 },
+        );
+      }
+      const deck = buildRandomDexDeck(contacts, cap);
+      return NextResponse.json({
+        ok: true,
+        cardIds: deck.map((c) => c.id),
+      });
+    }
+
     return NextResponse.json(
       {
         error:
-          'unknown action — use create | log | assistant | quiz_contextual',
+          "unknown action — use create | log | assistant | quiz_contextual | flashcards_random",
       },
       { status: 400 },
     );

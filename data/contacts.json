@@ -13,8 +13,13 @@
       "ROS2 expert",
       "Based in SF"
     ],
-    "stage": 0,
-    "interactions": [],
+    "stage": 1,
+    "interactions": [
+      {
+        "note": "i met him, he is really good",
+        "date": "2026-05-02"
+      }
+    ],
     "createdAt": "2026-05-01T09:00:00Z",
     "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-001"
   },

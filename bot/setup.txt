@@ -15,8 +15,8 @@ HTTP integration with ContactDex (BASE = your ContactDex URL):
     • {"action":"log","data":{id,note,date?}}
 
     • {"action":"assistant","data":{
-         "query"?: "natural language event brief",
-         "mode"?: "auto" | "event" | "reconnect",
+         "query"?: "natural language event brief OR roster question",
+         "mode"?: "auto" | "event" | "reconnect" | "connections",
          "limit"?: number,
        }}
 
@@ -26,12 +26,17 @@ HTTP integration with ContactDex (BASE = your ContactDex URL):
       Modes:
       - "event" — score overlap between your brief and tags / bios / moves / interaction logs (AI hackathons, investor weeks, etc.).
       - "reconnect" — rank by staleness; omit query (or leave it empty) for a pure cold-contact leaderboard.
-      - "auto"/omit — detect reconnect phrasing; otherwise treat message as an event brief.
+      - "connections" — answer factual roster questions from the Dex (counts filtered by keywords, lookups like #042, summaries of who matches wording, or omit query + this mode for a snapshot of totals & popular tags). Professor auto-picks this in "auto" when the user sounds curious about their network rather than prepping for one event surface.
+      - "auto"/omit — detect reconnect phrasing → reconnect; Dex / connection questions (#id, “how many contacts”, “who has tag X”, …) → connections; otherwise event brief overlap.
 
     • {"action":"quiz_contextual","data":{ "query": "...", "limit"?: number }}
       Mirrors POST BASE/api/quiz/contextual — event-scoped flashcards (scoreEventRelevance pool only).
       Success:
       { "ok": true, "quiz": { "hiddenField", "display", "answer", "id", "movesetIndex?", "choices"? } }
+
+    • {"action":"flashcards_random","data":{ "limit"?: number (default ~18, max 40) }}
+      Dex-wide shuffle: returns { "ok": true, "cardIds": ["001", "003", ...] } for study / portrait flashcards.
+      Used by Botpress when handling the server flashcard trigger (see below).
 
       Quiz JSON extras:
       - "choices": exactly four strings (shuffled), one equals "answer", when hiddenField is "bio" or "moveset" and enough distractors exist; Study uses them as multiple choice. Omitted → free-text guessing for that round (still true for hiddenField "name").
@@ -48,6 +53,23 @@ HTTP integration with ContactDex (BASE = your ContactDex URL):
 
 Embed: set NEXT_PUBLIC_BOTPRESS_WEBCHAT_CONFIG in repo root .env.local to Cloud JSON;
 see https://botpress.com/docs/webchat/get-started/embedding-webchat.md
+
+Dex-wide flashcards + Botpress (no event ?context=)
+---------------------------------
+When `/flashcards` is opened without a brief, ContactDex calls Botpress Cloud Runtime API with a
+hidden user message: `${BOTPRESS_FLASHCARD_TRIGGER:-__dex_flashcards__}:N` (N = deck cap).
+
+Studio setup (outline):
+  1. Transition when incoming text matches `^__dex_flashcards__:(\d+)$` (or your custom trigger).
+  2. HTTP Request → POST BASE/api/webhook/botpress
+     Body: `{ "action": "flashcards_random", "data": { "limit": $1 } }`  (use captured group).
+  3. From the JSON response, take `cardIds` and send one outgoing **text** message whose body is
+     exactly: `{"cardIds":["001","002",...]}` (stringify the object; same order as returned).
+  4. In `.env.local` set `BOTPRESS_PERSONAL_ACCESS_TOKEN`, `BOTPRESS_BOT_ID`, `BOTPRESS_INTEGRATION_ID`,
+     and `BOTPRESS_CHANNEL` (often `web` — match your Webchat integration’s channel name in Cloud).
+
+If those env vars are missing or the bot does not answer with that JSON, ContactDex falls back to a
+local random deck (same contacts, no Botpress round-trip).
 
 Study UI (/study): optional textarea + ?context=<brief> presets the contextual quiz.
 

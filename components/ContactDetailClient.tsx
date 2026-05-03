@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Contact } from "@/lib/types";
 import { avatarColorClass, initials, stageLabel, tagCss } from "@/lib/format";
@@ -18,8 +19,10 @@ function sortInteractionsNewestFirst(c: Contact) {
 }
 
 export default function ContactDetailClient({ contact: initial }: Props) {
+  const router = useRouter();
   const [contact, setContact] = useState<Contact>(initial);
   const [flash, setFlash] = useState<string | null>(null);
+  const [removePending, setRemovePending] = useState(false);
   const lastStageRef = useRef(initial.stage);
 
   useEffect(() => {
@@ -53,8 +56,27 @@ export default function ContactDetailClient({ contact: initial }: Props) {
 
   const fillRatio = Math.min(contact.stage + 1, 4) / 4;
 
+  async function removeConnection() {
+    if (
+      !confirm(
+        `Remove ${contact.name} from your Dex? This cannot be undone.`,
+      )
+    ) {
+      return;
+    }
+    setRemovePending(true);
+    try {
+      const res = await fetch(`/api/contacts/${contact.id}`, {
+        method: "DELETE",
+      });
+      if (res.ok) router.push("/");
+    } finally {
+      setRemovePending(false);
+    }
+  }
+
   return (
-    <div>
+    <div className="font-pixel">
       <div className="overflow-hidden rounded-3xl border border-slate-700/80 bg-gradient-to-br from-[#1a222c] to-[#151b24] shadow-2xl shadow-black/30">
         <div className="relative border-b border-slate-700/60 bg-black/25 px-8 py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
@@ -73,10 +95,10 @@ export default function ContactDetailClient({ contact: initial }: Props) {
                 </div>
               )}
               <div className="min-w-0">
-                <span className="font-mono text-sm text-blue-400/90">
+                <span className="font-pixel-display text-xs text-blue-400/90 sm:text-sm">
                   #{contact.id}
                 </span>
-                <h1 className="truncate text-3xl font-bold text-white">
+                <h1 className="font-pixel-display text-xl font-normal leading-snug text-white sm:text-2xl">
                   {contact.name}
                 </h1>
                 <p className="mt-2 flex flex-wrap gap-2">
@@ -95,7 +117,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
           </div>
 
           <div className="mt-8">
-            <p className="mb-2 flex justify-between text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <p className="mb-2 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
               <span>Evolution path</span>
               <span className="normal-case text-emerald-300">
                 {stageLabel(contact.stage)}
@@ -131,14 +153,14 @@ export default function ContactDetailClient({ contact: initial }: Props) {
 
         <div className="space-y-8 px-8 py-8">
           <section>
-            <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
+            <h2 className="mb-3 font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-400 sm:text-xs">
               Bio & context
             </h2>
             <p className="leading-relaxed text-slate-200">{contact.bio}</p>
           </section>
 
           <section>
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
+            <h2 className="mb-4 font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-400 sm:text-xs">
               Moveset
             </h2>
             <ul className="space-y-2">
@@ -157,8 +179,8 @@ export default function ContactDetailClient({ contact: initial }: Props) {
         </div>
       </div>
 
-      <section className="mt-12">
-        <h2 className="mb-6 text-xl font-semibold text-white">
+      <section className="mt-12 font-pixel">
+        <h2 className="mb-6 font-pixel-display text-base font-normal text-white sm:text-lg">
           Interaction log
         </h2>
         {interactions.length === 0 ? (
@@ -178,6 +200,24 @@ export default function ContactDetailClient({ contact: initial }: Props) {
             ))}
           </ol>
         )}
+      </section>
+
+      <section className="mt-12 border-t border-slate-700/60 pt-8 font-pixel">
+        <h2 className="mb-2 font-pixel-display text-[0.65rem] font-normal uppercase tracking-widest text-slate-500 sm:text-xs">
+          Manage connection
+        </h2>
+        <p className="mb-4 text-sm text-slate-400">
+          Remove this person from your Dex. Their card and interaction log are
+          deleted.
+        </p>
+        <button
+          type="button"
+          disabled={removePending}
+          onClick={() => void removeConnection()}
+          className="rounded-xl border border-rose-500/40 bg-rose-950/50 px-4 py-2.5 text-sm font-medium text-rose-200 transition hover:border-rose-400/65 hover:bg-rose-900/55 disabled:opacity-50"
+        >
+          {removePending ? "Removing…" : "Remove connection"}
+        </button>
       </section>
     </div>
   );

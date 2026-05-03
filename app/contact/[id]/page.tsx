@@ -11,7 +11,7 @@ export default async function ContactPage({ params }: Params) {
   if (!contact) notFound();
 
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-4 py-10">
+    <main className="mx-auto min-h-screen max-w-3xl px-4 py-10 font-pixel">
       <Link
         href="/"
         className="mb-8 inline-flex text-sm text-slate-400 transition hover:text-white"

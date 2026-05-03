@@ -51,6 +51,21 @@ function parseTime(isoOrDate: string): number {
   return Number.isFinite(t) ? t : 0;
 }
 
+/**
+ * Evolution leaderboard: highest stage first, then more interactions, then name.
+ */
+export function sortContactsByEvolutionLeaderboard(
+  contacts: Contact[],
+): Contact[] {
+  return [...contacts].sort((a, b) => {
+    if (b.stage !== a.stage) return b.stage - a.stage;
+    const ib = b.interactions.length;
+    const ia = a.interactions.length;
+    if (ib !== ia) return ib - ia;
+    return a.name.localeCompare(b.name);
+  });
+}
+
 /** Oldest activity first (good for stale nudges). Uses last interaction note date or createdAt. */
 export function sortContactsByStale(contacts: Contact[]): Contact[] {
   return [...contacts].sort((a, b) => {

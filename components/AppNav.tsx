@@ -9,17 +9,29 @@ export default function AppNav() {
         <div className="flex min-w-0 flex-1 items-center gap-8">
           <Link
             href="/"
-            className="shrink-0 block rounded-xl p-1 ring-slate-600/40 transition hover:ring-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70"
+            className="flex shrink-0 items-center gap-3 rounded-xl p-1 ring-slate-600/40 transition hover:ring-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70"
             aria-label="ContactDex — home"
           >
             <BrandMark className="h-10 w-10" />
+            <span className="font-pixel-display truncate text-base font-normal leading-tight text-white sm:text-lg md:text-xl">
+              ContactDex
+            </span>
           </Link>
-          <nav className="flex gap-6 text-sm text-slate-300">
-            <Link href="/" className="transition hover:text-white">
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm uppercase tracking-wider text-slate-300 font-pixel">
+            <Link href="/" className="transition hover:text-emerald-300">
               Gallery
             </Link>
-            <Link href="/study" className="transition hover:text-white">
-              Study Mode
+            <Link href="/study" className="transition hover:text-emerald-300">
+              Study mode
+            </Link>
+            <Link href="/flashcards" className="transition hover:text-emerald-300">
+              Flashcards
+            </Link>
+            <Link
+              href="/leaderboard"
+              className="transition hover:text-emerald-300"
+            >
+              Leaderboard
             </Link>
           </nav>
         </div>
