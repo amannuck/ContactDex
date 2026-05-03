@@ -8,7 +8,7 @@ export default function UserAccountPreview() {
       aria-label="Signed in"
     >
       <img
-        src="https://api.dicebear.com/9.x/avataaars/png?seed=ContactDexOwner&size=96"
+        src="https://api.dicebear.com/9.x/avataaars/png?seed=JohnDoe&size=96"
         alt=""
         width={36}
         height={36}
@@ -16,9 +16,9 @@ export default function UserAccountPreview() {
       />
       <div className="min-w-0 text-left leading-tight">
         <p className="truncate text-sm font-semibold text-white">
-          Nicholas Sheppard
+          John Doe
         </p>
-        <p className="truncate text-xs text-slate-400">nichorito@dex.local</p>
+        <p className="truncate text-xs text-slate-400">john.doe@dex.local</p>
       </div>
       <span className="hidden rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-400/95 sm:inline">
         Live
