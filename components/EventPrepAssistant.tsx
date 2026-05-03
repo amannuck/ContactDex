@@ -410,7 +410,7 @@ export default function EventPrepAssistant() {
         }
         title={open ? "Close event prep assistant" : "Open event prep assistant"}
         onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-[70] flex size-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-800 text-white shadow-2xl shadow-emerald-950/50 ring-2 ring-emerald-300/50 transition hover:scale-105 hover:ring-emerald-200/60 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300/45 active:scale-95"
+        className="fixed bottom-10 right-10 z-[70] flex size-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-800 text-white shadow-2xl shadow-emerald-950/50 ring-2 ring-emerald-300/50 transition hover:scale-105 hover:ring-emerald-200/60 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300/45 active:scale-95"
       >
         {open ? (
           <span className="text-xl font-light leading-none" aria-hidden>
