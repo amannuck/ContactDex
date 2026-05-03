@@ -106,7 +106,7 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
         : null;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 font-pixel">
+    <div className="mx-auto max-w-6xl px-[max(1rem,env(safe-area-inset-left))] py-6 pb-4 pr-[max(1rem,env(safe-area-inset-right))] pt-[max(1rem,env(safe-area-inset-top))] font-pixel sm:py-8 lg:px-10">
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="font-pixel-display text-2xl font-normal leading-snug text-white sm:text-3xl md:text-4xl">
@@ -120,14 +120,14 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
           <button
             type="button"
             onClick={() => setImportOpen((o) => !o)}
-            className="w-full rounded-xl border border-dashed border-sky-600/55 bg-sky-950/35 px-4 py-2 text-sm font-semibold text-sky-200/95 transition hover:border-sky-500/70 hover:bg-sky-950/50"
+            className="min-h-11 w-full rounded-xl border border-dashed border-sky-600/55 bg-sky-950/35 px-4 py-3 text-sm font-semibold text-sky-200/95 transition hover:border-sky-500/70 hover:bg-sky-950/50 sm:min-h-0 sm:py-2"
           >
             {importOpen ? "Hide import form" : "Import new connections"}
           </button>
           <button
             type="button"
             onClick={() => setAddOpen((o) => !o)}
-            className="w-full rounded-xl border border-slate-600 bg-slate-800/60 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-slate-700/70"
+            className="min-h-11 w-full rounded-xl border border-slate-600 bg-slate-800/60 px-4 py-3 text-sm font-medium text-slate-100 transition hover:bg-slate-700/70 sm:min-h-0 sm:py-2"
           >
             {addOpen ? "Hide form" : "Add contact"}
           </button>
@@ -135,7 +135,7 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
       </div>
 
       {importOpen && (
-        <div className="mb-10 rounded-2xl border border-sky-800/40 bg-sky-950/20 p-6 shadow-inner ring-1 ring-sky-900/30">
+        <div className="mb-10 rounded-2xl border border-sky-800/40 bg-sky-950/20 p-4 shadow-inner ring-1 ring-sky-900/30 sm:p-6">
           <h2 className="mb-2 text-lg font-semibold text-white">
             Import new connections
           </h2>
@@ -155,7 +155,7 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
       )}
 
       {addOpen && (
-        <div className="mb-10 rounded-2xl border border-slate-700 bg-[#1a222c]/90 p-6 shadow-inner">
+        <div className="mb-10 rounded-2xl border border-slate-700 bg-[#1a222c]/90 p-4 shadow-inner sm:p-6">
           <h2 className="mb-4 text-lg font-semibold text-white">
             New dex entry (manual)
           </h2>
@@ -271,23 +271,23 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
             type="button"
             disabled={creating || !form.name.trim()}
             onClick={() => void createContact()}
-            className="mt-6 rounded-xl bg-blue-600 px-5 py-2.5 font-medium text-white shadow-lg shadow-blue-900/40 disabled:opacity-40"
+            className="mt-6 min-h-11 w-full rounded-xl bg-blue-600 px-5 py-3 font-medium text-white shadow-lg shadow-blue-900/40 disabled:opacity-40 sm:w-auto sm:min-h-0 sm:py-2.5"
           >
             {creating ? "Saving…" : "Catch contact"}
           </button>
         </div>
       )}
 
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row">
+      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-stretch">
         <input
           type="search"
           placeholder="Search name or bio…"
           aria-label="Search contacts"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="min-w-[200px] flex-1 rounded-xl border border-slate-700 bg-[#121820] px-4 py-2 text-slate-100 outline-none ring-blue-400/35 focus:border-blue-500/70 focus:ring-2"
+          className="min-h-11 min-w-[min(100%,280px)] flex-1 rounded-xl border border-slate-700 bg-[#121820] px-4 py-3 text-base text-slate-100 outline-none ring-blue-400/35 placeholder:text-slate-600 focus:border-blue-500/70 focus:ring-2 sm:py-2 sm:text-sm"
         />
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-stretch">
           <label htmlFor="tag-filter" className="sr-only">
             Tag filter
           </label>
@@ -300,7 +300,7 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
               setTag(next);
               await fetchList(next);
             }}
-            className="rounded-xl border border-slate-700 bg-[#121820] px-4 py-2 text-slate-100 outline-none focus:ring-2 focus:ring-blue-400/50"
+            className="min-h-11 w-full rounded-xl border border-slate-700 bg-[#121820] px-4 py-3 text-base text-slate-100 outline-none focus:ring-2 focus:ring-blue-400/50 sm:w-auto sm:min-w-[12rem] sm:py-2 sm:text-sm"
           >
             <option value="">All tags</option>
             {mergedTagDropdown.map((t) => (
@@ -317,7 +317,7 @@ export default function ContactsGallery({ contacts: initial, tagOptions }: Props
           {emptyMessage}
         </p>
       ) : (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           {visible.map((c) => (
             <ContactCard key={c.id} contact={c} />
           ))}

@@ -5,7 +5,6 @@ import {
   nextContactId,
   readContacts,
   sortContactsByStale,
-  stageFromInteractionCount,
 } from "@/lib/contacts";
 
 function filterContacts(

@@ -20,7 +20,7 @@ export default async function FlashcardsPage(props: {
         : undefined;
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col px-4 py-8 font-pixel sm:px-6">
+    <main className="mx-auto flex min-h-screen max-w-md flex-col px-[max(1rem,env(safe-area-inset-left))] py-6 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] pr-[max(1rem,env(safe-area-inset-right))] pt-[max(1.25rem,env(safe-area-inset-top))] font-pixel sm:px-6 sm:py-8 sm:pb-24">
       <FlashcardsClient initialContext={ctx} />
     </main>
   );
