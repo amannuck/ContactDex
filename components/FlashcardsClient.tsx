@@ -31,7 +31,8 @@ export default function FlashcardsClient({ initialContext }: Props) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   const ptrDown = useRef<{ x: number; y: number } | null>(null);
-  const suppressFlip = useRef(false);
+  /** Tap flips in pointerup (reliable on touch); next click is skipped to avoid double-toggle. */
+  const skipNextClickFlip = useRef(false);
   const animatingNavRef = useRef(false);
   const slideVisualRef = useRef<"idle" | "exit-next" | "exit-prev">("idle");
 
@@ -150,24 +151,35 @@ export default function FlashcardsClient({ initialContext }: Props) {
   }, [current, loading, goNext, goPrev, prefersReducedMotion]);
 
   const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     ptrDown.current = { x: e.clientX, y: e.clientY };
-    suppressFlip.current = false;
+    skipNextClickFlip.current = false;
   };
 
   const onPointerUp = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     if (!ptrDown.current) return;
-    const dx = e.clientX - ptrDown.current.x;
-    const dy = e.clientY - ptrDown.current.y;
+    const start = ptrDown.current;
+    const dx = e.clientX - start.x;
+    const dy = e.clientY - start.y;
     ptrDown.current = null;
-    if (
-      Math.abs(dx) >= SWIPE_PX &&
-      Math.abs(dx) > Math.abs(dy) + 12
-    ) {
+
+    const isSwipe =
+      Math.abs(dx) >= SWIPE_PX && Math.abs(dx) > Math.abs(dy) + 12;
+
+    if (isSwipe) {
       if (animatingNavRef.current && !prefersReducedMotion) return;
-      suppressFlip.current = true;
+      skipNextClickFlip.current = true;
       if (dx < 0) goNext();
       else goPrev();
+      return;
     }
+
+    const target = e.target as HTMLElement | null;
+    if (target?.closest("a")) return;
+
+    skipNextClickFlip.current = true;
+    setFlipped((f) => !f);
   };
 
   const onPointerCancel = () => {
@@ -175,8 +187,8 @@ export default function FlashcardsClient({ initialContext }: Props) {
   };
 
   const onCardClick = () => {
-    if (suppressFlip.current) {
-      suppressFlip.current = false;
+    if (skipNextClickFlip.current) {
+      skipNextClickFlip.current = false;
       return;
     }
     setFlipped((f) => !f);
@@ -316,13 +328,19 @@ export default function FlashcardsClient({ initialContext }: Props) {
                   ]
                     .filter(Boolean)
                     .join(" ")}
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transition:
-                      "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
-                    transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
-                  }}
+                  style={{ transformStyle: "preserve-3d" }}
                 >
+                  <div
+                    className="relative h-full w-full"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transition:
+                        "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transform: flipped
+                        ? "rotateY(180deg)"
+                        : "rotateY(0deg)",
+                    }}
+                  >
                 {/* Front */}
                 <div
                   className="absolute inset-0 flex flex-col items-center rounded-3xl border-2 border-emerald-800/45 bg-gradient-to-b from-[#25332d] via-[#1c2a24] to-[#151f1b] px-4 pt-6 pb-4 shadow-inner"
@@ -342,6 +360,7 @@ export default function FlashcardsClient({ initialContext }: Props) {
                       <img
                         src={current.avatar}
                         alt=""
+                        draggable={false}
                         className="size-40 rounded-3xl object-cover ring-2 ring-slate-600/90 shadow-lg sm:size-44"
                       />
                     ) : (
@@ -381,35 +400,36 @@ export default function FlashcardsClient({ initialContext }: Props) {
                       Answer
                     </p>
                   </div>
-                  <div className="min-h-0 flex-1 overflow-y-auto px-4 py-3">
+                  <div className="min-h-0 min-w-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-3 [overflow-wrap:anywhere]">
                     <p className="font-mono text-xs text-blue-400/90">
                       #{current.id}
                     </p>
-                    <h2 className="mt-1 font-pixel-display text-xl font-normal leading-snug text-white sm:text-2xl">
+                    <h2 className="mt-1 break-words font-pixel-display text-xl font-normal leading-snug text-white sm:text-2xl">
                       {current.name}
                     </h2>
                     <p className="mt-0.5 text-xs text-slate-500 uppercase tracking-wide">
                       {stageLabel(current.stage)}
                     </p>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-200 sm:text-base">
+                    <p className="mt-3 break-words text-sm leading-relaxed text-slate-200 sm:text-base">
                       {current.bio}
                     </p>
                     <ul className="mt-3 space-y-2 text-sm text-emerald-100/95 sm:text-base">
                       {current.moveset.map((m, i) => (
-                        <li key={`${m}-${i}`} className="flex gap-2">
+                        <li key={`${m}-${i}`} className="flex min-w-0 gap-2">
                           <span className="shrink-0 text-emerald-500/90">▸</span>
-                          <span>{m}</span>
+                          <span className="min-w-0 break-words">{m}</span>
                         </li>
                       ))}
                     </ul>
                     <Link
                       href={`/contact/${current.id}`}
-                      className="mt-4 inline-block text-sm font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-2 hover:text-white"
+                      className="mt-4 inline-block max-w-full break-words text-sm font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-2 hover:text-white"
                       onClick={(e) => e.stopPropagation()}
                     >
                       Full Dex entry →
                     </Link>
                   </div>
+                </div>
                 </div>
                 </div>
               </div>
