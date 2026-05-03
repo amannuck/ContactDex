@@ -71,6 +71,13 @@ Studio setup (outline):
 If those env vars are missing or the bot does not answer with that JSON, ContactDex falls back to a
 local random deck (same contacts, no Botpress round-trip).
 
+Evolution stages (dex UI + API)
+-------------------------------
+ **`stage`** advances from interaction **log counts** (`lib/contacts.stageFromInteractionCount`):
+   1 log → Talked (1), 3+ → Collaborated (2), 6+ → Close (3); zero logs → Met (0).
+   Persisted whenever `POST /api/contacts/{id}/log` or webhook `{"action":"log",...}` appends an entry.
+
+
 Study UI (/study): optional textarea + ?context=<brief> presets the contextual quiz.
 
 The Event prep FAB (bottom-left) offers “Quiz me on these picks → Study” after event-mode matches.

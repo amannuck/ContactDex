@@ -16,10 +16,10 @@ export default async function LeaderboardPage() {
   const ranked = sortContactsByEvolutionLeaderboard(contacts);
 
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-4 py-10 pb-16 font-pixel">
+    <main className="mx-auto min-h-screen max-w-3xl px-4 py-8 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pb-[calc(6rem+env(safe-area-inset-bottom,0px))] pt-[max(1.5rem,env(safe-area-inset-top))] font-pixel sm:py-10 sm:pb-24">
       <Link
         href="/"
-        className="mb-8 inline-flex text-sm text-slate-400 transition hover:text-white"
+        className="mb-6 inline-flex min-h-11 items-center text-sm text-slate-400 transition hover:text-white sm:mb-8 sm:min-h-0"
       >
         ← Gallery
       </Link>

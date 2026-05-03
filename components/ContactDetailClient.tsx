@@ -39,22 +39,17 @@ export default function ContactDetailClient({ contact: initial }: Props) {
     initial.moveset.join(","),
   ]);
 
-  const reload = useCallback(async () => {
+  const applySyncedContact = useCallback((next: Contact) => {
     const prev = lastStageRef.current;
-    const res = await fetch(`/api/contacts/${initial.id}`);
-    if (!res.ok) return;
-    const next = (await res.json()) as Contact;
     setContact(next);
     if (next.stage > prev) {
       setFlash(`Evolved to ${stageLabel(next.stage)}!`);
       window.setTimeout(() => setFlash(null), 3800);
     }
     lastStageRef.current = next.stage;
-  }, [initial.id]);
+  }, []);
 
   const interactions = sortInteractionsNewestFirst(contact);
-
-  const fillRatio = Math.min(contact.stage + 1, 4) / 4;
 
   async function removeConnection() {
     if (
@@ -77,19 +72,19 @@ export default function ContactDetailClient({ contact: initial }: Props) {
 
   return (
     <div className="font-pixel">
-      <div className="overflow-hidden rounded-3xl border border-slate-700/80 bg-gradient-to-br from-[#1a222c] to-[#151b24] shadow-2xl shadow-black/30">
-        <div className="relative border-b border-slate-700/60 bg-black/25 px-8 py-10">
+      <div className="overflow-hidden rounded-2xl border border-slate-700/80 bg-gradient-to-br from-[#1a222c] to-[#151b24] shadow-2xl shadow-black/30 sm:rounded-3xl">
+        <div className="relative border-b border-slate-700/60 bg-black/25 px-4 py-8 sm:px-8 sm:py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-            <div className="flex gap-6">
+            <div className="flex gap-4 sm:gap-6">
               {contact.avatar ? (
                 <img
                   src={contact.avatar}
                   alt=""
-                  className="size-24 shrink-0 rounded-full object-cover shadow-inner ring-2 ring-slate-600/70"
+                  className="size-20 shrink-0 rounded-full object-cover shadow-inner ring-2 ring-slate-600/70 sm:size-24"
                 />
               ) : (
                 <div
-                  className={`flex size-24 shrink-0 items-center justify-center rounded-full text-3xl font-bold text-white shadow-inner ${avatarColorClass(contact.tags[0])}`}
+                  className={`flex size-20 shrink-0 items-center justify-center rounded-full text-2xl font-bold text-white shadow-inner sm:size-24 sm:text-3xl ${avatarColorClass(contact.tags[0])}`}
                 >
                   {initials(contact.name)}
                 </div>
@@ -113,7 +108,11 @@ export default function ContactDetailClient({ contact: initial }: Props) {
                 </p>
               </div>
             </div>
-            <LogInteractionModal contactId={contact.id} onLogged={reload} />
+            <LogInteractionModal
+              contactId={contact.id}
+              onLogged={applySyncedContact}
+              triggerClassName="w-full shrink-0 sm:w-auto sm:self-start sm:justify-self-end"
+            />
           </div>
 
           <div className="mt-8">
@@ -123,24 +122,31 @@ export default function ContactDetailClient({ contact: initial }: Props) {
                 {stageLabel(contact.stage)}
               </span>
             </p>
-            <div className="h-3 w-full overflow-hidden rounded-full bg-slate-800">
-              <div
-                style={{ width: `${fillRatio * 100}%` }}
-                className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-sky-500 to-blue-600 transition-[width] duration-700 ease-out"
-              />
-            </div>
-            <div className="mt-2 grid grid-cols-4 gap-1 text-[10px] text-slate-500 sm:text-xs">
+            <div
+              className="mb-3 grid grid-cols-4 gap-x-1.5 gap-y-1 sm:gap-x-2"
+              role="group"
+              aria-label="Evolution progress"
+            >
               {STAGES.map((label, idx) => (
-                <span
-                  key={label}
-                  className={
-                    idx <= contact.stage
-                      ? "text-center font-medium text-emerald-300"
-                      : "text-center"
-                  }
-                >
-                  {label}
-                </span>
+                <div key={label} className="flex min-w-0 flex-col gap-1.5 sm:gap-2">
+                  <div
+                    className={
+                      idx <= contact.stage
+                        ? "h-2.5 w-full rounded-full bg-gradient-to-r from-emerald-500 via-sky-500 to-blue-600 shadow-sm shadow-emerald-900/30 transition-colors duration-500 sm:h-3"
+                        : "h-2.5 w-full rounded-full bg-slate-800 ring-1 ring-inset ring-slate-700/70 transition-colors duration-500 sm:h-3"
+                    }
+                    aria-hidden
+                  />
+                  <span
+                    className={
+                      idx <= contact.stage
+                        ? "text-center text-[clamp(8px,2.85vw,12px)] font-medium uppercase leading-none tracking-tight text-emerald-300 sm:text-[11px] sm:leading-tight sm:tracking-wide"
+                        : "text-center text-[clamp(8px,2.85vw,12px)] uppercase leading-none tracking-tight text-slate-500 sm:text-[11px]"
+                    }
+                  >
+                    {label}
+                  </span>
+                </div>
               ))}
             </div>
             {flash && (
@@ -151,7 +157,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
           </div>
         </div>
 
-        <div className="space-y-8 px-8 py-8">
+        <div className="space-y-8 px-4 py-6 sm:px-8 sm:py-8">
           <section>
             <h2 className="mb-3 font-pixel-display text-xs font-normal uppercase tracking-widest text-slate-400 sm:text-sm">
               Bio & context
@@ -214,7 +220,7 @@ export default function ContactDetailClient({ contact: initial }: Props) {
           type="button"
           disabled={removePending}
           onClick={() => void removeConnection()}
-          className="rounded-xl border border-rose-500/40 bg-rose-950/50 px-4 py-2.5 text-sm font-medium text-rose-200 transition hover:border-rose-400/65 hover:bg-rose-900/55 disabled:opacity-50"
+          className="min-h-11 w-full rounded-xl border border-rose-500/40 bg-rose-950/50 px-4 py-3 text-sm font-medium text-rose-200 transition hover:border-rose-400/65 hover:bg-rose-900/55 disabled:opacity-50 sm:inline-block sm:min-h-0 sm:w-auto sm:py-2.5"
         >
           {removePending ? "Removing…" : "Remove connection"}
         </button>

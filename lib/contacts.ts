@@ -12,11 +12,41 @@ function enqueue<T>(fn: () => Promise<T>): Promise<T> {
   return next;
 }
 
+async function loadContactsJsonFile(): Promise<Contact[]> {
+  let raw: string;
+  try {
+    raw = await fs.readFile(DATA_PATH, "utf8");
+  } catch (e) {
+    const code = e && typeof e === "object" && "code" in e ? String((e as { code: unknown }).code) : "";
+    if (code === "ENOENT") {
+      throw new Error(
+        `ContactDex: contacts.json not found (looked at ${DATA_PATH}). Run npm run dev from the project folder that contains the data directory.`,
+      );
+    }
+    throw e;
+  }
+
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      throw new Error("root value must be a JSON array");
+    }
+    return parsed as Contact[];
+  } catch (e) {
+    const detail =
+      e instanceof SyntaxError
+        ? e.message
+        : e instanceof Error
+          ? e.message
+          : String(e);
+    throw new Error(
+      `ContactDex: corrupt contacts.json — ${detail} (${DATA_PATH})`,
+    );
+  }
+}
+
 export async function readContacts(): Promise<Contact[]> {
-  return enqueue(async () => {
-    const raw = await fs.readFile(DATA_PATH, "utf8");
-    return JSON.parse(raw) as Contact[];
-  });
+  return enqueue(loadContactsJsonFile);
 }
 
 /** Read + mutate + write serialized on a single mutex chain. */
@@ -24,8 +54,7 @@ export async function mutateContacts(
   updater: (contacts: Contact[]) => void,
 ): Promise<void> {
   return enqueue(async () => {
-    const raw = await fs.readFile(DATA_PATH, "utf8");
-    const contacts = JSON.parse(raw) as Contact[];
+    const contacts = await loadContactsJsonFile();
     updater(contacts);
     await fs.writeFile(DATA_PATH, JSON.stringify(contacts, null, 2), "utf8");
   });

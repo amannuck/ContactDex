@@ -237,10 +237,10 @@ export default function StudyModeClient({ initialContext }: Props) {
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between gap-4">
+      <div className="mb-8 flex min-h-11 items-center justify-between gap-4">
         <Link
           href="/"
-          className="inline-flex text-sm text-slate-400 transition hover:text-white"
+          className="inline-flex min-h-11 items-center text-sm text-slate-400 transition hover:text-white sm:min-h-0"
         >
           ← Gallery
         </Link>
@@ -254,7 +254,7 @@ export default function StudyModeClient({ initialContext }: Props) {
         event room.
       </p>
 
-      <div className="mb-8 rounded-2xl border border-slate-700 bg-[#161d2788] px-6 py-5 sm:px-7">
+      <div className="mb-8 rounded-2xl border border-slate-700 bg-[#161d2788] px-4 py-5 sm:px-7">
         <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
           <label className="flex items-center gap-2 text-xs text-slate-400">
             <span className="font-semibold uppercase tracking-wide">
@@ -321,7 +321,7 @@ export default function StudyModeClient({ initialContext }: Props) {
       )}
 
       {quizPhase === "complete" && !loading && (
-        <div className="rounded-3xl border border-emerald-500/35 bg-[#14221a]/95 p-8 shadow-xl">
+        <div className="rounded-2xl border border-emerald-500/35 bg-[#14221a]/95 p-5 shadow-xl sm:rounded-3xl sm:p-8">
           <h2 className="font-pixel-display text-xl font-normal text-white sm:text-2xl">
             Quiz complete
           </h2>
@@ -372,24 +372,24 @@ export default function StudyModeClient({ initialContext }: Props) {
       )}
 
       {!loading && quizPhase === "active" && c && round && (
-        <div className="rounded-3xl border border-slate-700 bg-[#1a222c]/95 p-8 shadow-xl">
-          <div className="mb-8 flex gap-6">
+        <div className="rounded-2xl border border-slate-700 bg-[#1a222c]/95 p-4 shadow-xl sm:rounded-3xl sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:gap-6">
             {c.avatar && c.name !== "???" ? (
               <img
                 src={c.avatar}
                 alt=""
-                className="size-20 shrink-0 rounded-full object-cover ring-2 ring-slate-600/70"
+                className="size-[4.5rem] shrink-0 rounded-full object-cover ring-2 ring-slate-600/70 sm:size-20"
               />
             ) : (
               <div
-                className={`flex size-20 shrink-0 items-center justify-center rounded-full text-2xl font-bold text-white ${avatarColorClass(c.tags[0])}`}
+                className={`flex size-[4.5rem] shrink-0 items-center justify-center rounded-full text-xl font-bold text-white sm:size-20 sm:text-2xl ${avatarColorClass(c.tags[0])}`}
               >
                 {c.name === "???" ? "?" : initials(c.name)}
               </div>
             )}
             <div className="min-w-0">
               <p className="font-mono text-xs text-blue-400/90">#{c.id}</p>
-              <h2 className="text-2xl font-semibold">
+              <h2 className="text-xl font-semibold leading-tight sm:text-2xl">
                 <span className="text-white">
                   {c.name === "???" ? "???" : c.name}
                 </span>

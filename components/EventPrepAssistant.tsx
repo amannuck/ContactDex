@@ -249,7 +249,7 @@ export default function EventPrepAssistant() {
 
       <section
         inert={!open}
-        className={`fixed bottom-[5.5rem] left-4 right-4 z-[60] origin-bottom-right rounded-2xl border border-slate-700 bg-[#0f141bcc] px-4 py-4 font-pixel shadow-2xl shadow-black/55 backdrop-blur-md transition-all duration-200 ease-out sm:left-auto sm:right-6 sm:w-[min(400px,calc(100vw-2rem))] sm:px-5 sm:py-4 ${open ? "pointer-events-auto" : "pointer-events-none [&_*]:pointer-events-none"} ${panelClasses}`}
+        className={`fixed bottom-[max(5.75rem,calc(4rem+env(safe-area-inset-bottom,0px)))] left-[max(1rem,env(safe-area-inset-left))] right-[max(1rem,env(safe-area-inset-right))] z-[60] max-h-[min(48dvh,400px)] origin-bottom rounded-2xl border border-slate-700 bg-[#0f141bcc] px-4 py-4 font-pixel shadow-2xl shadow-black/55 backdrop-blur-md transition-all duration-200 ease-out sm:bottom-[max(6.75rem,calc(5rem+env(safe-area-inset-bottom,0px)))] sm:left-auto sm:right-[max(calc(env(safe-area-inset-right,0px)+1.25rem),1.75rem)] sm:max-h-[min(52dvh,480px)] sm:w-[min(400px,calc(100vw-2.5rem-env(safe-area-inset-right,0px)))] sm:origin-bottom-right sm:px-5 sm:py-4 ${open ? "pointer-events-auto" : "pointer-events-none [&_*]:pointer-events-none"} ${panelClasses}`}
         aria-hidden={!open}
       >
         <header className="mb-3 flex items-start justify-between gap-3">
@@ -292,7 +292,7 @@ export default function EventPrepAssistant() {
           ))}
         </div>
 
-        <div className="mb-3 flex max-h-[36vh] flex-col gap-2 overflow-y-auto pr-2 text-xs [-webkit-overflow-scrolling:touch] sm:max-h-[38vh] sm:text-sm">
+        <div className="mb-3 flex max-h-[34dvh] flex-col gap-2 overflow-y-auto pr-2 text-xs [-webkit-overflow-scrolling:touch] sm:max-h-[38vh] sm:text-sm">
           {messages.map((m) => (
             <div
               key={m.id}
@@ -376,7 +376,7 @@ export default function EventPrepAssistant() {
           <input
             aria-label="Ask the assistant"
             placeholder="Event brief, Dex question…"
-            className="min-w-0 flex-1 rounded-xl border border-slate-700 bg-[#111822] px-3 py-2 text-xs outline-none ring-emerald-400/35 placeholder:text-slate-600 focus:border-emerald-400/65 focus:ring-1 sm:text-sm"
+            className="min-h-11 min-w-0 flex-1 rounded-xl border border-slate-700 bg-[#111822] px-3 py-3 text-base outline-none ring-emerald-400/35 placeholder:text-slate-600 focus:border-emerald-400/65 focus:ring-1 sm:min-h-0 sm:py-2 sm:text-sm"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
@@ -389,7 +389,7 @@ export default function EventPrepAssistant() {
           <button
             type="button"
             disabled={busy || !input.trim()}
-            className="shrink-0 rounded-xl bg-emerald-600 px-3 py-2 text-xs font-semibold text-white hover:bg-emerald-500 disabled:opacity-35 sm:text-sm"
+            className="min-h-11 shrink-0 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-500 disabled:opacity-35 sm:min-h-0 sm:px-3 sm:py-2 sm:text-sm"
             onClick={() =>
               submitFromInput().catch(() => {
                 /* noop */
@@ -410,7 +410,7 @@ export default function EventPrepAssistant() {
         }
         title={open ? "Close event prep assistant" : "Open event prep assistant"}
         onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-10 right-10 z-[70] flex size-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-800 text-white shadow-2xl shadow-emerald-950/50 ring-2 ring-emerald-300/50 transition hover:scale-105 hover:ring-emerald-200/60 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300/45 active:scale-95"
+        className="fixed bottom-[max(1rem,calc(0.75rem+env(safe-area-inset-bottom,0px)))] right-[max(1rem,calc(0.5rem+env(safe-area-inset-right,0px)))] z-[70] flex size-14 touch-manipulation items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-800 text-white shadow-2xl shadow-emerald-950/50 ring-2 ring-emerald-300/50 transition hover:scale-105 hover:ring-emerald-200/60 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300/45 active:scale-95 sm:bottom-10 sm:right-10"
       >
         {open ? (
           <span className="text-xl font-light leading-none" aria-hidden>

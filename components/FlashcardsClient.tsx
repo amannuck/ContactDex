@@ -196,10 +196,10 @@ export default function FlashcardsClient({ initialContext }: Props) {
 
   return (
     <div className="flex min-h-[70vh] flex-col">
-      <div className="mb-4 flex shrink-0 items-center justify-between gap-4">
+      <div className="mb-4 flex min-h-11 shrink-0 items-center justify-between gap-4">
         <Link
           href="/"
-          className="inline-flex text-sm text-slate-400 transition hover:text-white"
+          className="inline-flex min-h-11 items-center px-1 text-sm text-slate-400 transition hover:text-white sm:min-h-0 sm:px-0"
         >
           ← Gallery
         </Link>
@@ -207,7 +207,7 @@ export default function FlashcardsClient({ initialContext }: Props) {
           type="button"
           disabled={loading}
           onClick={() => void loadDeck(initialContext ?? "")}
-          className="text-sm text-slate-400 underline decoration-slate-600 underline-offset-2 transition hover:text-emerald-300 disabled:opacity-40"
+          className="min-h-11 shrink-0 rounded-lg px-2 py-2 text-sm text-slate-400 underline decoration-slate-600 underline-offset-2 transition hover:bg-white/5 hover:text-emerald-300 disabled:opacity-40 sm:min-h-0 sm:py-0"
         >
           New deck
         </button>

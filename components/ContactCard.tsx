@@ -12,7 +12,7 @@ export default function ContactCard({ contact }: Props) {
   return (
     <Link
       href={`/contact/${contact.id}`}
-      className="group flex flex-col rounded-2xl border border-slate-700/70 bg-[#1a222c]/90 p-5 font-pixel shadow-lg shadow-black/20 transition hover:border-emerald-500/40 hover:shadow-xl"
+      className="group flex min-h-[44px] touch-manipulation flex-col rounded-2xl border border-slate-700/70 bg-[#1a222c]/90 p-4 font-pixel shadow-lg shadow-black/20 transition active:scale-[0.99] hover:border-emerald-500/40 hover:shadow-xl sm:min-h-0 sm:p-5"
     >
       <div className="mb-4 flex items-start justify-between gap-3">
         {contact.avatar ? (

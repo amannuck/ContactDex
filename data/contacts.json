@@ -35,11 +35,19 @@
       "Design systems keynote",
       "Figma workflows"
     ],
-    "stage": 1,
+    "stage": 2,
     "interactions": [
       {
         "note": "Swapped book recs",
         "date": "2026-05-09"
+      },
+      {
+        "note": "we worked together in hackathon",
+        "date": "2026-05-03"
+      },
+      {
+        "note": "haha",
+        "date": "2026-05-03"
       }
     ],
     "createdAt": "2026-04-10T14:30:00Z",
@@ -265,8 +273,13 @@
       "HIPAA rollout patterns",
       "Intro to AE for healthcare"
     ],
-    "stage": 0,
-    "interactions": [],
+    "stage": 1,
+    "interactions": [
+      {
+        "note": "collaborate together",
+        "date": "2026-05-03"
+      }
+    ],
     "createdAt": "2026-06-06T07:06:53Z",
     "avatar": "https://i.pravatar.cc/256?u=contactdex-gallery-010"
   },
@@ -315,8 +328,13 @@
       "Importer"
     ],
     "moveset": [],
-    "stage": 0,
-    "interactions": [],
+    "stage": 1,
+    "interactions": [
+      {
+        "note": "talked",
+        "date": "2026-05-03"
+      }
+    ],
     "createdAt": "2026-05-02T16:47:12.613Z",
     "linkedinExternalKey": "linkedin:demo-jordan-lee-devconf",
     "avatar": "https://api.dicebear.com/9.x/personas/png?seed=jordanLEEdevconf&scale=118"
@@ -480,8 +498,13 @@
       "Importer"
     ],
     "moveset": [],
-    "stage": 0,
-    "interactions": [],
+    "stage": 1,
+    "interactions": [
+      {
+        "note": "He was our teammate in a hackathon",
+        "date": "2026-05-03"
+      }
+    ],
     "createdAt": "2026-05-02T16:47:12.613Z",
     "linkedinExternalKey": "linkedin:demo-sam-okonkwo-robotics",
     "avatar": "https://i.pravatar.cc/240?img=51"
@@ -645,8 +668,17 @@
       "Importer"
     ],
     "moveset": [],
-    "stage": 0,
-    "interactions": [],
+    "stage": 1,
+    "interactions": [
+      {
+        "note": "worked together in a hackathon",
+        "date": "2026-05-03"
+      },
+      {
+        "note": "he worked with me in a team",
+        "date": "2026-05-03"
+      }
+    ],
     "createdAt": "2026-05-02T16:47:12.613Z",
     "linkedinExternalKey": "linkedin:demo-rowan-diaz-fe",
     "avatar": "https://api.dicebear.com/9.x/lorelei-neutral/png?seed=rowandiazneutral"

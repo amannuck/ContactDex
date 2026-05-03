@@ -7,7 +7,7 @@ export default async function Home() {
     a.localeCompare(b),
   );
   return (
-    <main className="min-h-screen pb-12 font-pixel">
+    <main className="min-h-screen pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] font-pixel sm:pb-20">
       <ContactsGallery contacts={contacts} tagOptions={tagOptions} />
     </main>
   );
