@@ -3,7 +3,7 @@ import BrandMark from "@/components/BrandMark";
 import UserAccountPreview from "@/components/UserAccountPreview";
 
 const linkClass =
-  "flex min-h-11 min-w-[2.75rem] shrink-0 items-center justify-center rounded-lg px-2.5 text-[11px] font-medium uppercase tracking-wide text-slate-300 transition hover:bg-white/5 hover:text-emerald-300 sm:min-h-0 sm:min-w-0 sm:justify-start sm:px-0 sm:py-2 sm:text-base md:text-lg md:tracking-wider";
+  "flex min-h-11 min-w-[2.75rem] shrink-0 items-center justify-center rounded-lg px-2.5 text-[11px] font-medium uppercase tracking-wide text-slate-300 transition hover:bg-white/5 hover:text-emerald-300 sm:min-h-0 sm:min-w-0 sm:justify-start sm:px-0 sm:py-2 sm:font-pixel sm:text-base md:text-lg md:tracking-wider";
 
 export default function AppNav() {
   return (
