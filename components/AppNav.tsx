@@ -3,7 +3,7 @@ import BrandMark from "@/components/BrandMark";
 import UserAccountPreview from "@/components/UserAccountPreview";
 
 const linkClass =
-  "flex min-h-11 min-w-[2.75rem] shrink-0 items-center justify-center rounded-lg px-2.5 text-[11px] font-medium uppercase tracking-wide text-slate-300 transition hover:bg-white/5 hover:text-emerald-300 sm:min-h-0 sm:min-w-0 sm:justify-start sm:px-0 sm:py-2 sm:font-pixel sm:text-base md:text-lg md:tracking-wider";
+  "flex min-h-12 min-w-[3rem] shrink-0 items-center justify-center rounded-lg px-3.5 py-1 font-pixel text-base font-medium uppercase tracking-wide text-slate-300 transition hover:bg-white/5 hover:text-emerald-300 sm:min-h-0 sm:min-w-0 sm:justify-start sm:px-0 sm:py-2 sm:text-base md:text-lg md:tracking-wider";
 
 export default function AppNav() {
   return (
@@ -26,7 +26,7 @@ export default function AppNav() {
 
         <nav
           aria-label="Primary"
-          className="scrollbar-none col-span-2 row-start-2 flex min-h-11 gap-1 overflow-x-auto [-webkit-overflow-scrolling:touch] sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:min-h-0 sm:flex-wrap sm:justify-center sm:gap-x-5 sm:gap-y-2 sm:overflow-visible md:justify-center"
+          className="scrollbar-none col-span-2 row-start-2 flex min-h-12 gap-2 overflow-x-auto [-webkit-overflow-scrolling:touch] sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:min-h-0 sm:flex-wrap sm:justify-center sm:gap-x-5 sm:gap-y-2 sm:overflow-visible md:justify-center"
         >
           <Link href="/" className={linkClass}>
             Gallery
