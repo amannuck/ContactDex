@@ -249,10 +249,10 @@ export default function EventPrepAssistant() {
 
       <section
         inert={!open}
-        className={`fixed bottom-[max(5.75rem,calc(4rem+env(safe-area-inset-bottom,0px)))] left-[max(1rem,env(safe-area-inset-left))] right-[max(1rem,env(safe-area-inset-right))] z-[60] max-h-[min(48dvh,400px)] origin-bottom rounded-2xl border border-slate-700 bg-[#0f141bcc] px-4 py-4 font-pixel shadow-2xl shadow-black/55 backdrop-blur-md transition-all duration-200 ease-out sm:bottom-[max(6.75rem,calc(5rem+env(safe-area-inset-bottom,0px)))] sm:left-auto sm:right-[max(calc(env(safe-area-inset-right,0px)+1.25rem),1.75rem)] sm:max-h-[min(52dvh,480px)] sm:w-[min(400px,calc(100vw-2.5rem-env(safe-area-inset-right,0px)))] sm:origin-bottom-right sm:px-5 sm:py-4 ${open ? "pointer-events-auto" : "pointer-events-none [&_*]:pointer-events-none"} ${panelClasses}`}
+        className={`fixed bottom-[max(5.75rem,calc(4rem+env(safe-area-inset-bottom,0px)))] left-[max(1rem,env(safe-area-inset-left))] right-[max(1rem,env(safe-area-inset-right))] z-[60] flex h-[min(72dvh,560px)] max-h-[min(72dvh,560px)] min-h-0 origin-bottom flex-col gap-3 overflow-hidden rounded-2xl border border-slate-700 bg-[#0f141bcc] px-4 py-4 font-pixel shadow-2xl shadow-black/55 backdrop-blur-md transition-all duration-200 ease-out sm:bottom-[max(6.75rem,calc(5rem+env(safe-area-inset-bottom,0px)))] sm:left-auto sm:right-[max(calc(env(safe-area-inset-right,0px)+1.25rem),1.75rem)] sm:h-[min(76dvh,620px)] sm:max-h-[min(76dvh,620px)] sm:w-[min(400px,calc(100vw-2.5rem-env(safe-area-inset-right,0px)))] sm:origin-bottom-right sm:px-5 sm:py-4 ${open ? "pointer-events-auto" : "pointer-events-none [&_*]:pointer-events-none"} ${panelClasses}`}
         aria-hidden={!open}
       >
-        <header className="mb-3 flex items-start justify-between gap-3">
+        <header className="flex shrink-0 items-start justify-between gap-3">
           <div className="min-w-0 space-y-0.5">
             <p className="font-pixel-display text-xs uppercase tracking-[0.12em] text-emerald-300/90">
               Context helper
@@ -274,7 +274,7 @@ export default function EventPrepAssistant() {
           </button>
         </header>
 
-        <div className="mb-3 flex flex-wrap gap-1.5">
+        <div className="flex shrink-0 flex-wrap gap-1.5">
           {STARTERS.map((s) => (
             <button
               key={s.label}
@@ -285,26 +285,28 @@ export default function EventPrepAssistant() {
                   /* noop */
                 })
               }
-              className="rounded-full border border-slate-600 bg-slate-900/55 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-200 transition hover:border-emerald-400/60 hover:text-white disabled:opacity-40 sm:px-3 sm:text-[11px]"
+              className="rounded-full border border-slate-600 bg-slate-900/55 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-200 transition hover:border-emerald-400/60 hover:text-white disabled:opacity-40 sm:px-3 sm:py-1 sm:text-[11px]"
             >
               {s.label}
             </button>
           ))}
         </div>
 
-        <div className="mb-3 flex max-h-[34dvh] flex-col gap-2 overflow-y-auto pr-2 text-xs [-webkit-overflow-scrolling:touch] sm:max-h-[38vh] sm:text-sm">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-2 overflow-y-auto overflow-x-hidden overscroll-contain pr-2 text-xs [-webkit-overflow-scrolling:touch] sm:text-sm">
           {messages.map((m) => (
             <div
               key={m.id}
-              className={`rounded-xl border px-3 py-2 ${
+              className={`min-w-0 shrink-0 rounded-xl border px-3 py-2 ${
                 m.role === "user"
                   ? "ml-4 border-slate-600 bg-[#171f2bcc] text-slate-50"
                   : "mr-3 border-emerald-500/30 bg-[#14302555] text-slate-50"
               }`}
             >
-              <p className="whitespace-pre-wrap leading-snug">{m.text}</p>
+              <p className="break-words whitespace-pre-wrap leading-snug">
+                {m.text}
+              </p>
               {!!m.matches?.length && (
-                <ul className="mt-2 space-y-1.5 border-t border-white/10 pt-2 text-[11px] sm:text-xs">
+                <ul className="mt-2 grid grid-cols-2 gap-2 border-t border-white/10 pt-2 text-[11px] sm:grid-cols-1 sm:text-xs">
                   {m.matches.map((hit) => (
                     <li
                       key={`${m.id}-${hit.id}`}
@@ -312,7 +314,7 @@ export default function EventPrepAssistant() {
                     >
                       <Link
                         href={`/contact/${hit.id}`}
-                        className="font-semibold text-emerald-200 hover:underline"
+                        className="text-xs font-semibold leading-snug text-emerald-200 hover:underline sm:text-[11px]"
                       >
                         #{hit.id} • {hit.name}
                       </Link>
@@ -337,29 +339,37 @@ export default function EventPrepAssistant() {
               {m.role === "assistant" &&
                 typeof m.quizLinkQuery === "string" &&
                 m.quizLinkQuery.length > 0 && (
-                  <div className="mt-2 space-y-1 border-t border-white/10 pt-2">
-                    <p>
-                      <Link
-                        href={`/study?context=${encodeURIComponent(m.quizLinkQuery)}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[11px] font-semibold text-emerald-300 underline decoration-emerald-500/55 underline-offset-2 hover:text-white sm:text-xs"
-                        onClick={() => setOpen(false)}
+                  <div className="mt-3 grid gap-2.5 border-t border-white/15 pt-3 sm:mt-2 sm:gap-2 sm:pt-2">
+                    <Link
+                      href={`/study?context=${encodeURIComponent(m.quizLinkQuery)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-xl border-2 border-emerald-400/45 bg-gradient-to-b from-emerald-600/25 to-emerald-950/50 px-4 py-3.5 text-center font-pixel text-base font-bold uppercase tracking-wide text-emerald-50 shadow-md shadow-emerald-950/40 ring-1 ring-emerald-300/20 transition hover:border-emerald-300/80 hover:from-emerald-500/35 hover:to-emerald-900/55 hover:text-white hover:shadow-emerald-900/50 active:scale-[0.98] sm:min-h-0 sm:py-3 sm:text-sm"
+                      onClick={() => setOpen(false)}
+                    >
+                      <span
+                        className="text-lg leading-none text-emerald-300 sm:text-base"
+                        aria-hidden
                       >
-                        Quiz → Study
-                      </Link>
-                    </p>
-                    <p>
-                      <Link
-                        href={`/flashcards?context=${encodeURIComponent(m.quizLinkQuery)}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[11px] font-semibold text-sky-300 underline decoration-sky-500/55 underline-offset-2 hover:text-white sm:text-xs"
-                        onClick={() => setOpen(false)}
+                        ▶
+                      </span>
+                      Quiz → Study
+                    </Link>
+                    <Link
+                      href={`/flashcards?context=${encodeURIComponent(m.quizLinkQuery)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-xl border-2 border-sky-400/45 bg-gradient-to-b from-sky-600/25 to-sky-950/50 px-4 py-3.5 text-center font-pixel text-base font-bold uppercase tracking-wide text-sky-50 shadow-md shadow-sky-950/40 ring-1 ring-sky-300/20 transition hover:border-sky-300/80 hover:from-sky-500/35 hover:to-sky-900/55 hover:text-white hover:shadow-sky-900/50 active:scale-[0.98] sm:min-h-0 sm:py-3 sm:text-sm"
+                      onClick={() => setOpen(false)}
+                    >
+                      <span
+                        className="text-lg leading-none text-sky-300 sm:text-base"
+                        aria-hidden
                       >
-                        Flashcards →
-                      </Link>
-                    </p>
+                        ◆
+                      </span>
+                      Flashcards →
+                    </Link>
                   </div>
                 )}
             </div>
@@ -372,7 +382,7 @@ export default function EventPrepAssistant() {
           )}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex shrink-0 gap-2">
           <input
             aria-label="Ask the assistant"
             placeholder="Event brief, Dex question…"
